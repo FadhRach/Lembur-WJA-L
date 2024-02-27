@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="title" content="FlexF">
-    <meta name="description" content="Flexible Facilities x SMKN 1 Cimahi">
+    <meta name="description" content="Lembur West Java Area">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
@@ -37,12 +37,12 @@
                 @csrf
               <input class="p-2 mt-4 rounded-xl border border-gray-100" type="email" name="email" placeholder="Email" value="{{ old('email')}}">
               @error('email')
-                <p class="text-xs ml-2 text-blue-400">{{ $message }}</p>
+                <p class="text-xs ml-2 text-red-400">{{ $message }}</p>
               @enderror
               <div class="relative">
                 <input class="p-2 rounded-xl border w-full border-gray-100" type="password" name="password" placeholder="Password">
                 @error('password')
-                <p class="text-xs mt-2 ml-2 text-blue-400">{{ $message }}</p>
+                <p class="text-xs mt-2 ml-2 text-red-400">{{ $message }}</p>
               @enderror
               </div>
                 <button name="submit" type="submit" class="bg-blue-800 rounded-xl text-white py-2 duration-500 mt-4" value="Login">Login</button>
