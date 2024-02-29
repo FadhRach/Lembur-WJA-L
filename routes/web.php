@@ -28,9 +28,16 @@ Route::get('/home', function(){
 });
 
 Route::middleware(['auth'])->group(function () {
+    // ROUTE MANAGER
     Route::get('/manager', [ManagerController::class, 'index'])->middleware('userAkses:manager');
+
+    //ROUTE ENGINEER
     Route::get('/engineer', [EngineerController::class, 'index'])->middleware('userAkses:engineer');
+
+    //ROUTE KARYAWAN
     Route::get('/karyawan', [KaryawanController::class, 'index'])->middleware('userAkses:karyawan');
+
+    //LOGOUT
     Route::get('/logout', [SesiController::class, 'logout']);
 });
 
