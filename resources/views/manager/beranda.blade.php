@@ -11,14 +11,14 @@
 
     {{-- Content --}}
     <div class="p-4 sm:ml-64">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+        <div class="p-4 mt-14">
             <main class="w-full flex-grow">
                 <h1 class="text-3xl text-black pb-6">Beranda</h1>
 
                 <div class="flex flex-wrap mt-6">
                     <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
                         <p class="text-xl pb-3 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-blue-600 dark:text-white" aria-hidden="true"
+                            <svg class="w-6 h-6 mr-2 text-blue-500" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M8.6 3.2a1 1 0 0 0-1.6 1 3.5 3.5 0 0 1-.8 3.6c-.6.8-4 5.6-1 10.7A7.7 7.7 0 0 0 12 22a8 8 0 0 0 7-3.8 7.8 7.8 0 0 0 .6-6.5 8.7 8.7 0 0 0-2.6-4 1 1 0 0 0-1.6.7 10 10 0 0 1-.8 3.4 9.9 9.9 0 0 0-2.2-5.5A14.4 14.4 0 0 0 9 3.5l-.4-.3Z" />
@@ -31,7 +31,7 @@
                     </div>
                     <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
                         <p class="text-xl pb-3 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-blue-600 dark:text-white" aria-hidden="true"
+                            <svg class="w-6 h-6 mr-2 text-blue-500" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="M4 4.5V19c0 .6.4 1 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.2M20 9v3.2" />
@@ -43,77 +43,74 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
+                    <p class="text-xl pb-3 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 7.2c4.4 0 8-1.2 8-2.6C20 3.2 16.4 2 12 2S4 3.2 4 4.6C4 6 7.6 7.2 12 7.2ZM12 22c5 0 8-1.7 8-2.6V15h-.2a7.8 7.8 0 0 1-1.3.7l-.2.1c-2 .7-4.2 1-6.3 1a19 19 0 0 1-6.3-1h-.2a10.1 10.1 0 0 1-1.3-.7L4 15v4.4c0 1 3 2.6 8 2.6Zm7-14c-.1.2-.3.2-.5.3l-.2.1c-2 .7-4.2 1-6.3 1a19 19 0 0 1-6.3-1h-.2a10.2 10.2 0 0 1-1.3-.7L4 7.6V12c0 1 3 2.6 8 2.6s8-1.7 8-2.6V7.6h-.2a7.8 7.8 0 0 1-.7.5Z"/>
+                          </svg>
+                        Data Lembur Terbaru
+                    </p>
+                </div>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <thead class="text-xs text-white uppercase bg-blue-500">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-2 py-3">
                                     No
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Product name
+                                <th scope="col" class="px-2 py-3">
+                                    Nama
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Color
+                                <th scope="col" class="px-2 py-3">
+                                    Kegiatan
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Category
+                                <th scope="col" class="px-2 py-3">
+                                    Deskripsi
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Accessories
+                                <th scope="col" class="px-2 py-3">
+                                    Lokasi
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Available
+                                <th scope="col" class="px-2 py-3">
+                                    Waktu Awal
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Price
+                                <th scope="col" class="px-2 py-3">
+                                    Waktu Akhir
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Weight
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Action
+                                <th scope="col" class="px-2 py-3">
+                                    Status
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="px-6 py-4">
+                            <tr class="bg-white border-b hover:bg-gray-50">
+                                <td class="px-2 py-4">
                                     1
                                 </td>
-                                <td class="px-6 py-4">
-                                    Apple MacBook Pro 17"
+                                <td class="px-2 py-4">
+                                    Andi Surya Sunanda
                                 </td    >
-                                <td class="px-6 py-4">
-                                    Silver
+                                <td class="px-2 py-4">
+                                    Lembur Gangguan
                                 </td>
-                                <td class="px-6 py-4">
-                                    Laptop
+                                <td class="px-2 py-4 max-w-[200px]">
+                                    Gangguan Sentral Backbone Padalarang dan Ciung sampe bandung full mati tidak ada jaringan
                                 </td>
-                                <td class="px-6 py-4">
-                                    Yes
+                                <td class="px-2 py-4">
+                                    Kantor CiungWanara
                                 </td>
-                                <td class="px-6 py-4">
-                                    Yes
+                                <td class="px-2 py-4">
+                                    Sabtu, 28-11-2424
                                 </td>
-                                <td class="px-6 py-4">
-                                    $2999
+                                <td class="px-2 py-4">
+                                    Minggu, 19-12-2424
                                 </td>
-                                <td class="px-6 py-4">
-                                    3.0 lb.
-                                </td>
-                                <td class="flex items-center px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    <a href="#"
-                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
+                                <td class="px-2 py-4">
+                                    pengajuan
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
             </main>
         </div>
     </div>

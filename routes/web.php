@@ -30,6 +30,11 @@ Route::get('/home', function(){
 Route::middleware(['auth'])->group(function () {
     // ROUTE MANAGER
     Route::get('/manager', [ManagerController::class, 'index'])->middleware('userAkses:manager');
+    Route::get('/manager/datalembur', function(){return view('manager.lemburdata');})->middleware('userAkses:manager');
+    Route::get('/manager/datalaporan', function(){return view('manager.lemburlaporan');})->middleware('userAkses:manager');
+    Route::get('/manager/datapengajuan', function(){return view('manager.lemburpengajuan');})->middleware('userAkses:manager');
+    Route::get('/manager/daftarkaryawan', function(){return view('manager.daftarkaryawan');})->middleware('userAkses:manager');
+    Route::get('/manager/buatkanlembur', function(){return view('manager.buatkanlembur');})->middleware('userAkses:manager');
 
     //ROUTE ENGINEER
     Route::get('/engineer', [EngineerController::class, 'index'])->middleware('userAkses:engineer');

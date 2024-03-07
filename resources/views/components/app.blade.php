@@ -3,6 +3,9 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Lembur WJA | Lintasarta</title>
 
+{{-- ICON HEADER --}}
+<link rel="icon" href="{{ asset('img/iconlintas.png') }}" type="image/x-icon">
+
 {{-- CSS --}}
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
