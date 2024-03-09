@@ -15,9 +15,9 @@ class DummyUsersSeeder extends Seeder
     {
         $userdata = [
             [
-                'name'=>'Fadhlan Nur R',
-                'email'=>'fadhlannur007@gmail.com',
-                'password'=> bcrypt('manager'),
+                'name'=>'Manager LA WJA',
+                'email'=>'manager@example.com',
+                'password'=> bcrypt('manager123'),
                 'role'=>'manager',
                 'mitra'=>'pkl',
                 'jabatan'=>'jendral manager',
@@ -27,9 +27,9 @@ class DummyUsersSeeder extends Seeder
                 'foto'=>'Profile_Icon.png',
             ],
             [
-                'name'=>'Hilmy R N',
-                'email'=>'hilmy@gmail.com',
-                'password'=> bcrypt('engineer'),
+                'name'=>'Engineer LA WJA',
+                'email'=>'engineer@example.com',
+                'password'=> bcrypt('engineer123'),
                 'role'=>'engineer',
                 'mitra'=>'pkl',
                 'jabatan'=>'senior engineer',
@@ -39,9 +39,9 @@ class DummyUsersSeeder extends Seeder
                 'foto'=>'Profile_Icon.png',
             ],
             [
-                'name'=>'Willy A J',
-                'email'=>'willy@gmail.com',
-                'password'=> bcrypt('karyawan'),
+                'name'=>'Karyawan LA WJA',
+                'email'=>'karyawan@example.com',
+                'password'=> bcrypt('karyawan123'),
                 'role'=>'karyawan',
                 'mitra'=>'pkl',
                 'jabatan'=>'jendral teknisi',

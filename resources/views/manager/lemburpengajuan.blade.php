@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b hover:bg-gray-50 text-xs">
+                            <tr class="bg-white border-b hover:bg-gray-50">
                                 <td class="px-2 py-2 border-r text-center">
                                     1
                                 </td>
@@ -60,7 +60,7 @@
                                 <td class="px-2 py-2 border-r font-medium">
                                     Lembur Gangguan
                                 </td>
-                                <td class="px-2 py-2 border-r max-w-[150px]">
+                                <td class="px-2 py-2 border-r max-w-[150px] text-xs">
                                     Gangguan Sentral Backbone Padalarang dan Ciung sampe bandung full mati tidak ada jaringan
                                 </td>
                                 <td class="px-2 py-2 border-r">
@@ -81,12 +81,12 @@
                                 <td class="px-4 py-2 text-center">
                                     <a href="#">
                                         <button type="button" class="px-2 py-2 w-[80px] mb-1 text-xs text-center text-white rounded-md bg-green-400 hover:bg-green-500">
-                                            DiTerima
+                                            Di Terima
                                         </button>
                                     </a>
                                     <a href="#">
                                         <button type="button" class="px-2 py-2 w-[80px] text-xs text-center text-white rounded-md bg-red-400 hover:bg-red-500">
-                                            DiTolak
+                                            Di Tolak
                                         </button>
                                     </a>
                                 </td>
