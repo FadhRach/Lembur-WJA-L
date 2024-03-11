@@ -17,45 +17,15 @@
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg p-2">
                     <div
-                        class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+                        class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white">
                         <div>
-                            <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction"
-                                class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                type="button">
-                                <span class="sr-only">Action button</span>
-                                Action
-                                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                            <a href="/manager/daftarkaryawan/tambah" class="inline-flex items-center text-green-500 bg-white border border-green-300 focus:outline-none hover:bg-green-500 hover:text-white focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5">
+                                <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
                                 </svg>
-                            </button>
-                            <!-- Dropdown menu -->
-                            <div id="dropdownAction"
-                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                                    aria-labelledby="dropdownActionButton">
-                                    <li>
-                                        <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reward</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Promote</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Activate
-                                            account</a>
-                                    </li>
-                                </ul>
-                                <div class="py-1">
-                                    <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete
-                                        User</a>
-                                </div>
-                            </div>
-                        </div>
+                                Tambah Karyawan
+                            </a>
+                        </div>                        
                         <label for="table-search" class="sr-only">Search</label>
                         <div class="relative">
                             <div
@@ -71,192 +41,92 @@
                                 placeholder="Search for users">
                         </div>
                     </div>
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-all-search" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                                    </div>
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Name
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Position
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Status
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Action
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-table-search-1" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                                    </div>
-                                </td>
-                                <th scope="row"
-                                    class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg"
-                                        alt="Jese image">
-                                    <div class="ps-3">
-                                        <div class="text-base font-semibold">Neil Sims</div>
-                                        <div class="font-normal text-gray-500">neil.sims@flowbite.com</div>
-                                    </div>
-                                </th>
-                                <td class="px-6 py-4">
-                                    React Developer
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                        user</a>
-                                </td>
-                            </tr>
-                            <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-table-search-2" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                                    </div>
-                                </td>
-                                <th scope="row"
-                                    class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full"
-                                        src="/docs/images/people/profile-picture-3.jpg" alt="Jese image">
-                                    <div class="ps-3">
-                                        <div class="text-base font-semibold">Bonnie Green</div>
-                                        <div class="font-normal text-gray-500">bonnie@flowbite.com</div>
-                                    </div>
-                                </th>
-                                <td class="px-6 py-4">
-                                    Designer
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                        user</a>
-                                </td>
-                            </tr>
-                            <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-table-search-2" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                                    </div>
-                                </td>
-                                <th scope="row"
-                                    class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full"
-                                        src="/docs/images/people/profile-picture-2.jpg" alt="Jese image">
-                                    <div class="ps-3">
-                                        <div class="text-base font-semibold">Jese Leos</div>
-                                        <div class="font-normal text-gray-500">jese@flowbite.com</div>
-                                    </div>
-                                </th>
-                                <td class="px-6 py-4">
-                                    Vue JS Developer
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                        user</a>
-                                </td>
-                            </tr>
-                            <tr
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-table-search-2" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                                    </div>
-                                </td>
-                                <th scope="row"
-                                    class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full"
-                                        src="/docs/images/people/profile-picture-5.jpg" alt="Jese image">
-                                    <div class="ps-3">
-                                        <div class="text-base font-semibold">Thomas Lean</div>
-                                        <div class="font-normal text-gray-500">thomes@flowbite.com</div>
-                                    </div>
-                                </th>
-                                <td class="px-6 py-4">
-                                    UI/UX Engineer
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                        user</a>
-                                </td>
-                            </tr>
-                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                <td class="w-4 p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-table-search-3" type="checkbox"
-                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
-                                    </div>
-                                </td>
-                                <th scope="row"
-                                    class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    <img class="w-10 h-10 rounded-full"
-                                        src="/docs/images/people/profile-picture-4.jpg" alt="Jese image">
-                                    <div class="ps-3">
-                                        <div class="text-base font-semibold">Leslie Livingston</div>
-                                        <div class="font-normal text-gray-500">leslie@flowbite.com</div>
-                                    </div>
-                                </th>
-                                <td class="px-6 py-4">
-                                    SEO Specialist
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> Offline
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                        user</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-white uppercase bg-blue-500">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        No
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Jabatan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Mitra
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        NIK/NIP
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Alamat
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        No.Telpon
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 0;
+                                @endphp
+                                @foreach ($user as $u)
+                                    @php
+                                        $no++;
+                                    @endphp
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <td class="px-6 py-4 text-center">
+                                            {{ $no }}
+                                        </td>
+                                    <th scope="row"
+                                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                        <img class="w-10 h-10 rounded-full" src="{{ url('/img/' . $u->foto) }}"
+                                            alt="Jese image">
+                                        <div class="ps-3">
+                                            <div class="text-base font-semibold">{{ $u->name }}</div>
+                                            <div class="font-normal text-gray-500">{{ $u->email }}</div>
+                                        </div>
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ $u->jabatan }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $u->mitra }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $u->nik }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $u->alamat }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $u->no_telp }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center space-x-4">
+                                            <a href="#" class="flex items-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <a href="#" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </a>
+                                        </div>                                        
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </main>
         </div>

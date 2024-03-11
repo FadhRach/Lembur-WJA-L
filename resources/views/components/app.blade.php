@@ -9,6 +9,9 @@
 {{-- CSS --}}
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+{{-- JAVASCRIPT --}}
+<script src="{{asset('script/script.js')}}"></script>
+
 {{-- TAILWIND JS/CSS --}}
 @vite(['resources/css/app.css','resources/js/app.js'])
 

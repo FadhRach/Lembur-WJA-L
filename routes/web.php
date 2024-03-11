@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\EngineerController;
-use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\Engineer\BerandaEngineerController;
+use App\Http\Controllers\Karyawan\BerandaKaryawanController;
+use App\Http\Controllers\Manager\BerandaManagerController;
+use App\Http\Controllers\Manager\DaftarKaryawanController;
 use App\Http\Controllers\SesiController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,18 +30,19 @@ Route::get('/home', function(){
 
 Route::middleware(['auth'])->group(function () {
     // ROUTE MANAGER
-    Route::get('/manager', [ManagerController::class, 'index'])->middleware('userAkses:manager');
+    Route::get('/manager', [BerandaManagerController::class, 'index'])->middleware('userAkses:manager');
     Route::get('/manager/datalembur', function(){return view('manager.lemburdata');})->middleware('userAkses:manager');
     Route::get('/manager/datalaporan', function(){return view('manager.lemburlaporan');})->middleware('userAkses:manager');
     Route::get('/manager/datapengajuan', function(){return view('manager.lemburpengajuan');})->middleware('userAkses:manager');
-    Route::get('/manager/daftarkaryawan', function(){return view('manager.daftarkaryawan');})->middleware('userAkses:manager');
+    Route::get('/manager/daftarkaryawan', [DaftarKaryawanController::class,'index'])->middleware('userAkses:manager');
+    Route::get('/manager/daftarkaryawan/tambah', [DaftarKaryawanController::class,'tambah'])->middleware('userAkses:manager');
     Route::get('/manager/buatkanlembur', function(){return view('manager.buatkanlembur');})->middleware('userAkses:manager');
 
     //ROUTE ENGINEER
-    Route::get('/engineer', [EngineerController::class, 'index'])->middleware('userAkses:engineer');
+    Route::get('/engineer', [BerandaEngineerController::class, 'index'])->middleware('userAkses:engineer');
 
     //ROUTE KARYAWAN
-    Route::get('/karyawan', [KaryawanController::class, 'index'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
 
     //LOGOUT
     Route::get('/logout', [SesiController::class, 'logout']);
