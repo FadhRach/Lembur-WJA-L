@@ -15,6 +15,12 @@ class DaftarKaryawanController extends Controller
         return view("manager.daftarkaryawan",["user" => $user]);
     }
 
+    function tambah()
+    {
+        $user = User::all();
+        return view("manager.daftarkaryawantambah",["user" => $user]);
+    }
+
     function tambahsave(Request $request)
     {   
         $request->validate([

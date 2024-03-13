@@ -19,12 +19,12 @@
                     <div
                         class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white">
                         <div>
-                            <button data-modal-target="tambah-modal" data-modal-toggle="tambah-modal" class="inline-flex items-center text-green-500 bg-white border border-green-300 focus:outline-none hover:bg-green-500 hover:text-white focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5">
+                            <a href="/manager/daftarkaryawan/tambah" class="inline-flex items-center text-green-500 bg-white border border-green-300 focus:outline-none hover:bg-green-500 hover:text-white focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5">
                                 <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
                                 </svg>
                                 Tambah Karyawan
-                            </button>                            
+                            </a>
                         </div>                        
                         <label for="table-search" class="sr-only">Search</label>
                         <div class="relative">
@@ -136,9 +136,6 @@
                 </div>
             </main>
         </div>
-
-        {{-- Tambah Modal --}}
-        <x-modal-tambahkar-manager />
     </div>
 
     @if($massage = Session::get('success'))
