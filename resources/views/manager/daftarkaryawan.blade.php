@@ -19,12 +19,12 @@
                     <div
                         class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white">
                         <div>
-                            <a href="/manager/daftarkaryawan/tambah" class="inline-flex items-center text-green-500 bg-white border border-green-300 focus:outline-none hover:bg-green-500 hover:text-white focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5">
+                            <button data-modal-target="tambah-modal" data-modal-toggle="tambah-modal" class="inline-flex items-center text-green-500 bg-white border border-green-300 focus:outline-none hover:bg-green-500 hover:text-white focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5">
                                 <svg class="w-6 h-6 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
                                 </svg>
                                 Tambah Karyawan
-                            </a>
+                            </button>                            
                         </div>                        
                         <label for="table-search" class="sr-only">Search</label>
                         <div class="relative">
@@ -37,7 +37,7 @@
                                 </svg>
                             </div>
                             <input type="text" id="table-search-users"
-                                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Search for users">
                         </div>
                     </div>
@@ -50,6 +50,9 @@
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Role
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Jabatan
@@ -83,13 +86,16 @@
                                         </td>
                                     <th scope="row"
                                         class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img class="w-10 h-10 rounded-full" src="{{ url('/img/' . $u->foto) }}"
+                                        <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $u->foto) }}"
                                             alt="Jese image">
                                         <div class="ps-3">
                                             <div class="text-base font-semibold">{{ $u->name }}</div>
                                             <div class="font-normal text-gray-500">{{ $u->email }}</div>
                                         </div>
                                     </th>
+                                    <td class="px-6 py-4">
+                                        {{ $u->role }}
+                                    </td>
                                     <td class="px-6 py-4">
                                         {{ $u->jabatan }}
                                     </td>
@@ -107,20 +113,20 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center space-x-4">
-                                            <a href="#" class="flex items-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center">
+                                            <a href="/manager/daftarkaryawan/edit/{{ $u->id_user }}" class="flex items-center text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
                                                     <path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd" />
                                                 </svg>
                                                 Edit
                                             </a>
-                                            <a href="#" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center">
+                                            <a href="/manager/daftarkaryawan/delete/{{ $u->id_user }}" class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center delete-user-btn">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                                     <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                                 </svg>
                                                 Delete
-                                            </a>
-                                        </div>                                        
+                                            </a>                                            
+                                        </div>                         
                                     </td>
                                 </tr>
                                 @endforeach
@@ -130,7 +136,21 @@
                 </div>
             </main>
         </div>
+
+        {{-- Tambah Modal --}}
+        <x-modal-tambahkar-manager />
     </div>
+
+    @if($massage = Session::get('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sukses!',
+            text: '{{ $massage }}'
+        });
+    </script>
+    @endif
+
 </body>
 
 </html>

@@ -35,7 +35,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager/datalaporan', function(){return view('manager.lemburlaporan');})->middleware('userAkses:manager');
     Route::get('/manager/datapengajuan', function(){return view('manager.lemburpengajuan');})->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan', [DaftarKaryawanController::class,'index'])->middleware('userAkses:manager');
-    Route::get('/manager/daftarkaryawan/tambah', [DaftarKaryawanController::class,'tambah'])->middleware('userAkses:manager');
+    Route::post('/manager/daftarkaryawan/tambahsave', [DaftarKaryawanController::class,'tambahsave'])->middleware('userAkses:manager');
+    Route::get('/manager/daftarkaryawan/edit/{id}', [DaftarKaryawanController::class,'edit'])->middleware('userAkses:manager');
+    Route::put('/manager/daftarkaryawan/editsave/{id}', [DaftarKaryawanController::class,'editsave'])->middleware('userAkses:manager');
+    Route::get('/manager/daftarkaryawan/delete/{id}', [DaftarKaryawanController::class,'delete'])->middleware('userAkses:manager');
     Route::get('/manager/buatkanlembur', function(){return view('manager.buatkanlembur');})->middleware('userAkses:manager');
 
     //ROUTE ENGINEER

@@ -22,7 +22,7 @@ function previewImage(input) {
     const imagePreview = document.getElementById('imagePreview');
     if (input.files && input.files[0]) {
         const reader = new FileReader();
-
+        
         reader.onload = function(e) {
             imagePreview.src = e.target.result;
         }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('role',['karyawan','engineer','manager'])->default('karyawan');
             $table->string('mitra');
             $table->string('jabatan');
-            $table->integer('nik');
+            $table->string('nik');
             $table->string('alamat');
             $table->string('no_telp');
             $table->string('foto');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user');
     }
 };

@@ -24,7 +24,7 @@
                         <button type="button" class="flex text-sm rounded-full focus:ring-5 focus:ring-gray-300"
                             aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="{{ asset('img/profile_icon.png') }}"
+                            <img class="w-8 h-8 rounded-full object-cover object-center" src="{{ asset('img/' . Auth::user()->foto) }}"
                                 alt="user photo">
                         </button>
                     </div>
