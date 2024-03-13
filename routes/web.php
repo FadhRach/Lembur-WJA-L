@@ -5,6 +5,7 @@ use App\Http\Controllers\Karyawan\BerandaKaryawanController;
 use App\Http\Controllers\Manager\BerandaManagerController;
 use App\Http\Controllers\Manager\DaftarKaryawanController;
 use App\Http\Controllers\SesiController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,11 @@ Route::get('/home', function(){
 });
 
 Route::middleware(['auth'])->group(function () {
+
     // ROUTE MANAGER
+    Route::get('/manager/profile/{id}', [UserController::class, 'indexmanager'])->middleware('userAkses:manager');
+    Route::get('/manager/profile/edit/{id}', [UserController::class, 'editmanager'])->middleware('userAkses:manager');
+    Route::put('/manager/profile/editsave/{id}', [UserController::class, 'editsavemanager'])->middleware('userAkses:manager');
     Route::get('/manager', [BerandaManagerController::class, 'index'])->middleware('userAkses:manager');
     Route::get('/manager/datalembur', function(){return view('manager.lemburdata');})->middleware('userAkses:manager');
     Route::get('/manager/datalaporan', function(){return view('manager.lemburlaporan');})->middleware('userAkses:manager');
@@ -43,9 +48,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager/buatkanlembur', function(){return view('manager.buatkanlembur');})->middleware('userAkses:manager');
 
     //ROUTE ENGINEER
+    Route::get('/engineer/profile/{id}', [UserController::class, 'indexengineer'])->middleware('userAkses:engineer');
     Route::get('/engineer', [BerandaEngineerController::class, 'index'])->middleware('userAkses:engineer');
 
     //ROUTE KARYAWAN
+    Route::get('/karyawan/profile/{id}', [UserController::class, 'indexkaryawan'])->middleware('userAkses:karyawan');
     Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
 
     //LOGOUT

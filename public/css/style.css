@@ -1,0 +1,5 @@
+.header_foto {
+    background-image: url('../img/headerprofile.png');
+    background-size: cover;
+    background-position: center;
+}
