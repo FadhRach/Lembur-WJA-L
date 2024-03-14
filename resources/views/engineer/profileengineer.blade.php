@@ -49,7 +49,7 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="/manager" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                    <a href="/engineer" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                         role="menuitem">Kembali</a>
                                 </li>
                                 <hr>
@@ -74,7 +74,7 @@
             <div class="h-screen bg-blue-50 flex flex-wrap items-center justify-center">
                 <div class="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 bg-white shadow-lg transform duration-200 easy-in-out ">
                     <div class=" h-40 overflow-hidden flex justify-between header_foto" >
-                        <a href="/manager" class="text-white bg-transparent hover:bg-white hover:text-red-600 rounded-bl-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                        <a href="/engineer" class="text-white bg-transparent hover:bg-white hover:text-red-600 rounded-bl-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
                             <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
@@ -155,7 +155,7 @@
                 </button>
                 <div class="px-6 py-6 lg:px-8">
                     <h3 class="mb-7 text-xl font-medium text-gray-900 dark:text-white">Edit Profile</h3>
-                    <form class="space-y-6" action="/manager/profile/editsave/{{ $user->id_user }}" method="POST" enctype="multipart/form-data">
+                    <form class="space-y-6" action="/engineer/profile/editsave/{{ $user->id_user }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
