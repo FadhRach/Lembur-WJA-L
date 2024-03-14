@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Engineer\BerandaEngineerController;
 use App\Http\Controllers\Karyawan\BerandaKaryawanController;
+use App\Http\Controllers\karyawan\BuatLemburController;
 use App\Http\Controllers\Manager\BerandaManagerController;
 use App\Http\Controllers\Manager\DaftarKaryawanController;
 use App\Http\Controllers\SesiController;
@@ -55,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/karyawan/profile/{id}', [UserController::class, 'indexkaryawan'])->middleware('userAkses:karyawan');
     Route::put('/karyawan/profile/editsave/{id}', [UserController::class, 'editsavekaryawan'])->middleware('userAkses:karyawan');
     Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/buatlembur', [BuatLemburController::class, 'index'])->middleware('userAkses:karyawan');
 
     //LOGOUT
     Route::get('/logout', [SesiController::class, 'logout']);

@@ -69,7 +69,7 @@
             <ul class="space-y-2 font-medium h-auto">
                 <li>
                     <a href="/manager" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
@@ -81,9 +81,9 @@
                 </li>
                 <li>
                     <button type="button"
-                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
                         aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
@@ -100,15 +100,15 @@
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
                             <a href="/manager/datapengajuan"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Pengajuan</a>
                         </li>
                         <li>
                             <a href="/manager/datalaporan"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Laporan</a>
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Laporan</a>
                         </li>
                         <li>
                             <a href="/manager/datalembur"
-                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Data
                                 Lembur</a>
                         </li>
                     </ul>
@@ -116,7 +116,7 @@
                 <li>
                     <a href="/manager/daftarkaryawan"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path fill-rule="evenodd"
@@ -129,7 +129,7 @@
                 <li>
                     <a href="/manager/buatkanlembur"
                         class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path fill-rule="evenodd"

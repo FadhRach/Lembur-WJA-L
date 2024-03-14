@@ -31,7 +31,6 @@
               </div>
                 <button name="submit" type="submit" class="bg-blue-600 rounded-xl text-white py-2 duration-500 mt-4" value="Login">Login</button>
             </form>
-
           </div>
 
           <!-- image -->

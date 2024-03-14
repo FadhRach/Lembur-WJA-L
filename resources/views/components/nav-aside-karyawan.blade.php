@@ -59,71 +59,68 @@
 </nav>
 
 <aside id="logo-sidebar"
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
-    aria-label="Sidebar">
-    <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
-        <div class="text-center mb-5">
-            <span class="font-semibold text-lg">Hai, Karyawan</span>
+        class="fixed top-0 left-0 z-40 w-64 h-full pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
+        aria-label="Sidebar">
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
+            <div class="text-center mb-5">
+                <span class="font-semibold text-lg">Hai, Karyawan</span>
+            </div>
+            <hr>
+            <ul class="space-y-2 font-medium h-auto">
+                <li>
+                    <a href="/karyawan" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M11.3 3.3a1 1 0 0 1 1.4 0l6 6 2 2a1 1 0 0 1-1.4 1.4l-.3-.3V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3c0 .6-.4 1-1 1H7a2 2 0 0 1-2-2v-6.6l-.3.3a1 1 0 0 1-1.4-1.4l2-2 6-6Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="ms-3">Beranda</span>
+                    </a>
+                </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
+                        aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
+                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2c.6 0 1-.4 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Lembur</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Pengajuan</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Laporan</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">History Lembur</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/karyawan/buatlembur"
+                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                        <svg class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M5 4a2 2 0 0 0-2 2v1h10.968l-1.9-2.28A2 2 0 0 0 10.532 4H5ZM3 19V9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm9-8.5a1 1 0 0 1 1 1V13h1.5a1 1 0 1 1 0 2H13v1.5a1 1 0 1 1-2 0V15H9.5a1 1 0 1 1 0-2H11v-1.5a1 1 0 0 1 1-1Z" clip-rule="evenodd"/>
+                          </svg>                
+                        <span class="flex-1 ms-3 whitespace-nowrap">Buat Lembur</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <hr>
-        <ul class="space-y-2 font-medium">
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
-                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                    viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                        d="M11.3 3.3a1 1 0 0 1 1.4 0l6 6 2 2a1 1 0 0 1-1.4 1.4l-.3-.3V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3c0 .6-.4 1-1 1H7a2 2 0 0 1-2-2v-6.6l-.3.3a1 1 0 0 1-1.4-1.4l2-2 6-6Z"
-                        clip-rule="evenodd" />
-                    </svg>                  
-                    <span class="ms-3">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                        <path
-                            d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Kanban</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Inbox</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                        <path
-                            d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                        <path
-                            d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</aside>
+    </aside>
