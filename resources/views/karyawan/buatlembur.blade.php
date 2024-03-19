@@ -62,11 +62,6 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="text" name="?" id="?"  placeholder="Lokasi Lembur" value="{{ old('?') }}">
                                 </div>
-                                <div class="col-span-6 lg:col-span-2">
-                                    <label for="?" class="text-sm font-medium text-gray-900 block mb-2">lokasi</label>
-                                    <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
-                                    type="text" name="?" id="?"  placeholder="Lokasi Lembur" value="{{ old('?') }}">
-                                </div>
                                 <div class="col-span-6 border-t pt-2 border-gray-200 rounded-b">
                                     <button class="flex items-center justify-center text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit">
                                         <svg class="w-6 h-6 mr-2 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
