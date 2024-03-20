@@ -87,7 +87,6 @@ class UserController extends Controller
         if (!empty($request->password)) {
             $user->password = $request->password;
         }
-        $user->role = $request->role;
         $user->mitra = $request->mitra;
         $user->jabatan = $request->jabatan;
         $user->nik = $request->nik;

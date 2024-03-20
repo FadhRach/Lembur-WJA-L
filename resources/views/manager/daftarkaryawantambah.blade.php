@@ -40,7 +40,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5" 
                                     type="text" name="name" id="name" placeholder="Nama Karyawan" value="{{ old('name') }}">
                                     @if ($errors->has('name'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('name') }}
                                     </div>
                                      @endif
@@ -50,7 +50,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="email" name="email" id="email" placeholder="nama@example.com" value="{{ old('email') }}">
                                     @if ($errors->has('email'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('email') }}
                                     </div>
                                      @endif
@@ -67,7 +67,7 @@
                                         </button>
                                     </div>
                                     @if ($errors->has('password'))
-                                        <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                        <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                             {{ $errors->first('password') }}
                                         </div>
                                     @endif
@@ -84,7 +84,7 @@
                                         </button>
                                     </div>
                                     @if ($errors->has('confirm_password'))
-                                        <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                        <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                             {{ $errors->first('confirm_password') }}
                                         </div>
                                     @endif
@@ -95,7 +95,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="number" name="nik" id="nik" placeholder="12345678" value="{{ old('nik') }}">
                                     @if ($errors->has('nik'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('nik') }}
                                     </div>
                                      @endif
@@ -105,7 +105,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="text" name="no_telp" id="no_telp"  placeholder="+628123456789" value="{{ old('no_telp') }}">
                                     @if ($errors->has('no_telp'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('no_telp') }}
                                     </div>
                                      @endif
@@ -115,7 +115,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="text" name="alamat" id="alamat" placeholder="Alamat" value="{{ old('alamat') }}">
                                     @if ($errors->has('alamat'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('alamat') }}
                                     </div>
                                     @endif
@@ -130,7 +130,7 @@
                                         <option value="manager" {{ old('role') == 'manager' ? 'selected' : '' }}>Manager</option>
                                     </select>
                                     @if ($errors->has('role'))
-                                        <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                        <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                             {{ $errors->first('role') }}
                                         </div>
                                     @endif
@@ -140,7 +140,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5" 
                                     type="text" name="jabatan" id="jabatan" placeholder="Senior Karyawan" value="{{ old('jabatan') }}">
                                     @if ($errors->has('jabatan'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('jabatan') }}
                                     </div>
                                      @endif
@@ -150,7 +150,7 @@
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="text" name="mitra" id="mitra" placeholder="KSPS" value="{{ old('mitra') }}">
                                     @if ($errors->has('mitra'))
-                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800 dark:text-red-400" role="alert">
+                                    <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
                                         {{ $errors->first('mitra') }}
                                     </div>
                                      @endif
