@@ -98,5 +98,15 @@
             </main>
         </div>
     </div>
+
+    @if($massage = Session::get('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sukses!',
+            text: '{{ $massage }}'
+        });
+    </script>
+    @endif
 </body>
 </html>

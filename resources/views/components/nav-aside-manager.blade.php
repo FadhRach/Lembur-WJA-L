@@ -28,8 +28,7 @@
                                     alt="user photo">
                             </button>
                         </div>
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow"
-                            id="dropdown-user">
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="dropdown-user">
                             <div class="px-4 py-3" role="none">
                                 <p class="text-sm text-gray-900" role="none">
                                     {{ Auth::user()->name }}
@@ -40,18 +39,19 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="/manager/profile/{{ Auth::user()->id_user }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                        role="menuitem">Profile</a>
+                                    <a href="/manager/profile/{{ Auth::user()->id_user }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Profile</a>
                                 </li>
                                 <hr>
-                                <li>
-                                    <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-200"
-                                        role="menuitem">
-                                        Log Out
+                                <li class="flex items-center">
+                                    <a href="/logout" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-red-500 hover:bg-gray-100 w-full" role="menuitem">
+                                        <svg class="w-6 h-6 mr-2 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
+                                        </svg>                                          
+                                        <span>Log Out</span>
                                     </a>
-                                </li>
+                                </li>                                
                             </ul>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
-                        aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                        aria-controls="lembur-dropdown" data-collapse-toggle="lembur-dropdown">
                         <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 24 24">
@@ -97,7 +97,7 @@
                                 d="m1 1 4 4 4-4" />
                         </svg>
                     </button>
-                    <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                    <ul id="lembur-dropdown" class="hidden py-2 space-y-2">
                         <li>
                             <a href="/manager/datapengajuan"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Pengajuan</a>
@@ -127,8 +127,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/manager/buatkanlembur"
-                        class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
+                        aria-controls="buatkanlembur-dropdown" data-collapse-toggle="buatkanlembur-dropdown">
                         <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                             viewBox="0 0 24 24">
@@ -136,8 +137,23 @@
                                 d="M4.9 3C3.9 3 3 3.8 3 4.9V9c0 1 .8 1.9 1.9 1.9H9c1 0 1.9-.8 1.9-1.9V5c0-1-.8-1.9-1.9-1.9H5Zm10 0c-1 0-1.9.8-1.9 1.9V9c0 1 .8 1.9 1.9 1.9H19c1 0 1.9-.8 1.9-1.9V5c0-1-.8-1.9-1.9-1.9h-4Zm-10 10c-1 0-1.9.8-1.9 1.9V19c0 1 .8 1.9 1.9 1.9H9c1 0 1.9-.8 1.9-1.9v-4c0-1-.8-1.9-1.9-1.9H5ZM18 14a1 1 0 1 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 1 0 2 0v-2h2a1 1 0 1 0 0-2h-2v-2Z"
                                 clip-rule="evenodd" />
                         </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Buatkan Lembur</span>
-                    </a>
+                        <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Buatkan Lembur</span>
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <ul id="buatkanlembur-dropdown" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="/manager/buatkanlembur/karyawan"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Karyawan</a>
+                        </li>
+                        <li>
+                            <a href="/manager/buatkanlembur/engineer"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Engineer</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

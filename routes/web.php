@@ -4,6 +4,7 @@ use App\Http\Controllers\Engineer\BerandaEngineerController;
 use App\Http\Controllers\Karyawan\BerandaKaryawanController;
 use App\Http\Controllers\karyawan\BuatLemburController;
 use App\Http\Controllers\Manager\BerandaManagerController;
+use App\Http\Controllers\Manager\BuatkanLemburController;
 use App\Http\Controllers\Manager\DaftarKaryawanController;
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\UserController;
@@ -32,7 +33,7 @@ Route::get('/home', function(){
 
 Route::middleware(['auth'])->group(function () {
 
-    // ROUTE MANAGER
+    // ROUTE MANAGER ------------------------------------------------------------------------------------------------------------------------
     Route::get('/manager/profile/{id}', [UserController::class, 'indexmanager'])->middleware('userAkses:manager');
     Route::put('/manager/profile/editsave/{id}', [UserController::class, 'editsavemanager'])->middleware('userAkses:manager');
     Route::get('/manager', [BerandaManagerController::class, 'index'])->middleware('userAkses:manager');
@@ -46,14 +47,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/manager/daftarkaryawan/editsave/{id}', [DaftarKaryawanController::class,'editsave'])->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan/delete/{id}', [DaftarKaryawanController::class,'delete'])->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan/cari', [DaftarKaryawanController::class,'cari'])->middleware('userAkses:manager');
-    Route::get('/manager/buatkanlembur', function(){return view('manager.buatkanlembur');})->middleware('userAkses:manager');
+    Route::get('/manager/buatkanlembur/karyawan', [BuatkanLemburController::class,'indexbuatlemburkaryawan'])->middleware('userAkses:manager');
+    Route::post('/manager/buatkanlembur/karyawansave', [BuatkanLemburController::class,'tambahlemburkaryawan'])->middleware('userAkses:manager');
+    Route::get('/manager/buatkanlembur/engineer', [BuatkanLemburController::class,'indexbuatlemburengineer'])->middleware('userAkses:manager');
+    Route::post('/manager/buatkanlembur/engineersave', [BuatkanLemburController::class,'tambahlemburengineer'])->middleware('userAkses:manager');
 
-    //ROUTE ENGINEER
+    //ROUTE ENGINEER -----------------------------------------------------------------------------------------------------------------------
     Route::get('/engineer/profile/{id}', [UserController::class, 'indexengineer'])->middleware('userAkses:engineer');
     Route::put('/engineer/profile/editsave/{id}', [UserController::class, 'editsaveengineer'])->middleware('userAkses:engineer');
     Route::get('/engineer', [BerandaEngineerController::class, 'index'])->middleware('userAkses:engineer');
 
-    //ROUTE KARYAWAN
+    //ROUTE KARYAWAN -----------------------------------------------------------------------------------------------------------------------
     Route::get('/karyawan/profile/{id}', [UserController::class, 'indexkaryawan'])->middleware('userAkses:karyawan');
     Route::put('/karyawan/profile/editsave/{id}', [UserController::class, 'editsavekaryawan'])->middleware('userAkses:karyawan');
     Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
@@ -67,7 +71,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/karyawan/lemburlaporan', function(){return view ('karyawan.laporanlembur');})->middleware('userAkses:karyawan');
     Route::get('/karyawan/lemburhistory', function(){return view ('karyawan.history');})->middleware('userAkses:karyawan');
 
-    //LOGOUT
+    //LOGOUT -------------------------------------------------------------------------------------------------------------------------------
     Route::get('/logout', [SesiController::class, 'logout']);
 });
 

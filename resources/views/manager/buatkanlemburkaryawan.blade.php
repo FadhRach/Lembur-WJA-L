@@ -5,20 +5,21 @@
 </head>
 <body>
     {{-- navbar dan sidebar --}}
-    <x-nav-aside-karyawan/>
-  
-    <div class="p-4 sm:ml-64">
-        <div class="p-4 mt-14">
-            <main class="w-full flex-grow">
-                <h1 class="text-3xl text-black pb-6">Pengajuan Lembur</h1>
+    <x-nav-aside-manager />
 
+    {{-- Content --}}
+    <div class="p-4 sm:ml-64">
+        <div  class="p-4 mt-14">
+            <main class="w-full flex-grow">
+                <h1 class="text-3xl text-black pb-6">Buatkan Lembur Untuk Karyawan</h1>
+                
                 <div class="bg-white border rounded-lg relative">
                     <div class="p-6 space-y-6">
-                        <form action="/karyawan/buatlembursave" method="POST"  enctype="multipart/form-data">
+                        <form action="/manager/buatkanlembur/karyawansave" method="POST"  enctype="multipart/form-data">
                             {{ csrf_field() }} @csrf
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 xl:col-span-2">
-                                    <label for="id_user" class="text-sm font-medium text-gray-900 block mb-2">Nama Karyawan</label>
+                                    <label for="id_user" class="text-sm font-medium text-gray-900 block mb-2">Petugas Manager</label>
                                     <div class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap border rounded-t-lg">
                                         <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ asset('img/' . Auth::user()->foto) }}"
                                             alt="Profil Image">
@@ -27,13 +28,13 @@
                                             <div class="font-normal text-gray-500">{{ Auth::user()->email }}</div>
                                         </div>
                                     </div>
-                                    <input type="text" name="id_user" value="{{ auth::user()->id_user }}" hidden>
+                                    <input type="text" name="ptgs_manager" value="{{ auth::user()->id_user }}" hidden>
                                     <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-semibold rounded-b-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
                                     type="text" value="{{ auth::user()->name }}" readonly>
                                 </div>
-                                @if ($errors->has('id_user'))
+                                @if ($errors->has('ptgs_manager'))
                                     <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
-                                        {{ $errors->first('id_user') }}
+                                        {{ $errors->first('ptgs_manager') }}
                                     </div>
                                      @endif
                                 <div class="col-span-6 xl:col-span-2">
@@ -54,20 +55,20 @@
                                     </div>
                                      @endif
                                 <div class="col-span-6 xl:col-span-2">
-                                    <label for="ptgs_manager" class="text-sm font-medium text-gray-900 block mb-2">Petugas Manager</label>
-                                    <div id="manager-details" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap border rounded-t-lg">
-                                        <!-- div manager ditampilkan di sini -->
+                                    <label for="Karyawan" class="text-sm font-medium text-gray-900 block mb-2">Nama Karyawan</label>
+                                    <div id="karyawan-details" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap border rounded-t-lg">
+                                        <!-- div karyawan ditampilkan di sini -->
                                     </div>
                                     <select class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm font-semibold rounded-b-lg focus:ring-blue-300 focus:border-blue-300 block w-full p-2.5"
-                                            name="ptgs_manager" id="ptgs_manager">
-                                        @foreach($manager as $man)
-                                            <option value="{{ $man->id_user }}">{{ $man->name }}</option>
+                                            name="id_user" id="karyawan">
+                                        @foreach($karyawan as $kar)
+                                            <option value="{{ $kar->id_user }}">{{ $kar->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                @if ($errors->has('ptgs_manager'))
+                                @if ($errors->has('id_user'))
                                     <div class="block w-full text-sm text-red-800 dark:bg-gray-800" role="alert">
-                                        {{ $errors->first('ptgs_manager') }}
+                                        {{ $errors->first('id_user') }}
                                     </div>
                                      @endif
                                 <div class="col-span-6">
@@ -149,6 +150,7 @@
         </div>
     </div>
 
+
     {{-- Script untuk Popup --}}
     <script>
         function displaySelectedUser(selectedUserId, containerId, userData) {
@@ -191,7 +193,7 @@
     
         // Panggil fungsi untuk menampilkan detail engineer/manajer pertama kali
         displaySelectedUser(document.getElementById('ptgs_engineer').value, 'engineer-details', @json($engineer));
-        displaySelectedUser(document.getElementById('ptgs_manager').value, 'manager-details', @json($manager));
+        displaySelectedUser(document.getElementById('karyawan').value, 'karyawan-details', @json($karyawan));
     
         // Tambahkan event listener untuk menampilkan detail pengguna saat opsi dipilih
         document.getElementById('ptgs_engineer').addEventListener('change', function() {
@@ -199,10 +201,10 @@
             displaySelectedUser(selectedUserId, 'engineer-details', @json($engineer));
         });
     
-        document.getElementById('ptgs_manager').addEventListener('change', function() {
+        document.getElementById('karyawan').addEventListener('change', function() {
             var selectedUserId = this.value;
-            displaySelectedUser(selectedUserId, 'manager-details', @json($manager));
+            displaySelectedUser(selectedUserId, 'karyawan-details', @json($karyawan));
         });
-    </script>    
+    </script>
 </body>
 </html>

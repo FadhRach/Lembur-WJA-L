@@ -55,7 +55,7 @@
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <thead class="text-xs text-white uppercase bg-blue-500">
                             <tr>
-                                <th scope="col" class="px-2 py-3">
+                                <th scope="col" class="px-2 py-3 text-center">
                                     No
                                 </th>
                                 <th scope="col" class="px-2 py-3">
@@ -77,37 +77,51 @@
                                     Waktu Akhir
                                 </th>
                                 <th scope="col" class="px-2 py-3">
+                                    Lama Kegiatan
+                                </th>
+                                <th scope="col" class="px-2 py-3">
                                     Status
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $no = 0;
+                            @endphp
+                            @foreach ($kegiatanterbaru as $newk)
+                            @php
+                                $no++;
+                            @endphp
                             <tr class="bg-white border-b hover:bg-gray-50">
-                                <td class="px-2 py-4">
-                                    1
+                                <td class="px-2 py-4 text-center">
+                                    {{ $no }}
                                 </td>
                                 <td class="px-2 py-4">
-                                    Andi Surya Sunanda
+                                    {{ $newk->user->name }}
                                 </td    >
                                 <td class="px-2 py-4">
-                                    Lembur Gangguan
+                                    {{ $newk->kegiatan }}
                                 </td>
-                                <td class="px-2 py-4 max-w-[200px]">
-                                    Gangguan Sentral Backbone Padalarang dan Ciung sampe bandung full mati tidak ada jaringan
-                                </td>
-                                <td class="px-2 py-4">
-                                    Kantor CiungWanara
-                                </td>
-                                <td class="px-2 py-4">
-                                    Sabtu, 28-11-2424
+                                <td class="px-2 py-4 max-w-[80px]">
+                                    {{ $newk->deskripsi }}
+                                </td>                                
+                                <td class="px-2 py-4 max-w-[100px]">
+                                    {{ $newk->lokasi }}
                                 </td>
                                 <td class="px-2 py-4">
-                                    Minggu, 19-12-2424
+                                    {{ $newk->tgl_awal }}
                                 </td>
                                 <td class="px-2 py-4">
-                                    pengajuan
+                                    {{ $newk->tgl_akhir }}
+                                </td>
+                                <td class="px-2 py-4">
+                                    {{ $newk->lama_kegiatan }}
+                                </td>
+                                <td class="px-2 py-4">
+                                    {{ $newk->kegiatan_stat }}
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

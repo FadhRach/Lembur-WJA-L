@@ -3,12 +3,18 @@
 namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kegiatan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BerandaManagerController extends Controller
 {
     function index()
     {
-        return view('manager.beranda');
+        $kegiatan = Kegiatan::all();
+        $user = User::all();
+        $kegiatanterbaru = Kegiatan::latest()->take(5)->get();
+
+        return view('manager.beranda', compact('kegiatan','user','kegiatanterbaru'));
     }
 }
