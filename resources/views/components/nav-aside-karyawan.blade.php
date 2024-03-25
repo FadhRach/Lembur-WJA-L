@@ -99,15 +99,15 @@
                     </button>
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="#"
+                            <a href="/karyawan/pengajuan"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Pengajuan</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/karyawan/laporan"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Laporan</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/karyawan/history"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">History Lembur</a>
                         </li>
                     </ul>

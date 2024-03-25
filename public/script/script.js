@@ -30,3 +30,29 @@ function previewImage(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+// Fungsi untuk menghitung durasi antara dua waktu
+document.addEventListener("DOMContentLoaded", function() {
+    function hitungDurasi() {
+        var awal = new Date(document.getElementById('tgl_awal').value);
+        var akhir = new Date(document.getElementById('tgl_akhir').value);
+
+        // Cek apakah kedua input memiliki nilai yang valid
+        if (isNaN(awal.getTime()) || isNaN(akhir.getTime())) {
+            document.getElementById('lama_kegiatan').value = "0 jam 0 menit";
+            return;
+        }
+
+        var selisih = akhir.getTime() - awal.getTime();
+        var jam = Math.floor(selisih / (1000 * 60 * 60));
+        var menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('lama_kegiatan').value = jam + " jam " + menit + " menit";
+    }
+
+    document.getElementById('tgl_awal').addEventListener('change', hitungDurasi);
+    document.getElementById('tgl_akhir').addEventListener('change', hitungDurasi);
+
+    // Hitung durasi awal saat halaman dimuat
+    hitungDurasi();
+});

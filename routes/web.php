@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager/daftarkaryawan/edit/{id}', [DaftarKaryawanController::class,'edit'])->middleware('userAkses:manager');
     Route::put('/manager/daftarkaryawan/editsave/{id}', [DaftarKaryawanController::class,'editsave'])->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan/delete/{id}', [DaftarKaryawanController::class,'delete'])->middleware('userAkses:manager');
+    Route::get('/manager/daftarkaryawan/cari', [DaftarKaryawanController::class,'cari'])->middleware('userAkses:manager');
     Route::get('/manager/buatkanlembur', function(){return view('manager.buatkanlembur');})->middleware('userAkses:manager');
 
     //ROUTE ENGINEER
@@ -56,7 +57,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/karyawan/profile/{id}', [UserController::class, 'indexkaryawan'])->middleware('userAkses:karyawan');
     Route::put('/karyawan/profile/editsave/{id}', [UserController::class, 'editsavekaryawan'])->middleware('userAkses:karyawan');
     Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/pengajuan', function(){return view('karyawan.lemburpengajuan');})->middleware('userAkses:karyawan');
+    Route::get('/karyawan/laporan', function(){return view('karyawan.lemburlaporan');})->middleware('userAkses:karyawan');
+    Route::get('/karyawan/history', function(){return view('karyawan.lemburhistory');})->middleware('userAkses:karyawan');
     Route::get('/karyawan/buatlembur', [BuatLemburController::class, 'index'])->middleware('userAkses:karyawan');
+    Route::post('/karyawan/buatlembursave', [BuatLemburController::class, 'tambahlemburkaryawan'])->middleware('userAkses:karyawan');
     Route::get('/karyawan/lemburpengajuan', function(){return view ('karyawan.pengajuanlembur');})->middleware('userAkses:karyawan');
     Route::get('/karyawan/lemburkegiatan', function(){return view ('karyawan.kegiatanlembur');})->middleware('userAkses:karyawan');
     Route::get('/karyawan/lemburlaporan', function(){return view ('karyawan.laporanlembur');})->middleware('userAkses:karyawan');

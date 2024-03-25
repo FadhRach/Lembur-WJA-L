@@ -118,4 +118,21 @@ class DaftarKaryawanController extends Controller
         
         return redirect('/manager/daftarkaryawan')->with('success', 'Data karyawan berhasil dihapus');
     }
+
+    function cari(Request $request) 
+    {
+        $cari = $request->cari;
+
+        $user = User::where('name', 'like', "%".$cari."%")
+                ->orWhere('email', 'like', "%".$cari."%")
+                ->orWhere('role', 'like', "%".$cari."%")
+                ->orWhere('jabatan', 'like', "%".$cari."%")
+                ->orWhere('mitra', 'like', "%".$cari."%")
+                ->orWhere('nik', 'like', "%".$cari."%")
+                ->orWhere('alamat', 'like', "%".$cari."%")
+                ->orWhere('no_telp', 'like', "%".$cari."%")
+                ->paginate();
+
+        return view('/manager/daftarkaryawan', ['user' => $user]);
+    }
 }  
