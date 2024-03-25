@@ -57,6 +57,10 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/karyawan/profile/editsave/{id}', [UserController::class, 'editsavekaryawan'])->middleware('userAkses:karyawan');
     Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
     Route::get('/karyawan/buatlembur', [BuatLemburController::class, 'index'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/lemburpengajuan', function(){return view ('karyawan.pengajuanlembur');})->middleware('userAkses:karyawan');
+    Route::get('/karyawan/lemburkegiatan', function(){return view ('karyawan.kegiatanlembur');})->middleware('userAkses:karyawan');
+    Route::get('/karyawan/lemburlaporan', function(){return view ('karyawan.laporanlembur');})->middleware('userAkses:karyawan');
+    Route::get('/karyawan/lemburhistory', function(){return view ('karyawan.history');})->middleware('userAkses:karyawan');
 
     //LOGOUT
     Route::get('/logout', [SesiController::class, 'logout']);
