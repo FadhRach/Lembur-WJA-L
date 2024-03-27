@@ -70,7 +70,7 @@
         <hr>
         <ul class="space-y-2 font-medium h-auto">
             <li>
-                <a href="/manager" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="/engineer" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -99,22 +99,22 @@
                 </button>
                 <ul id="dropdown-example" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="#"
+                        <a href="/engineer/datapengajuan"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Pengajuan</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="/engineer/datalaporan"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Laporan</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="/engineer/datalembur"
                             class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data
                             Lembur</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="/engineer/daftarkaryawan" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 24 24">
@@ -126,32 +126,33 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
-                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path fill-rule="evenodd"
-                            d="M7 6c0-1.1.9-2 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-2v-4a3 3 0 0 0-3-3H7V6Z"
-                            clip-rule="evenodd" />
-                        <path fill-rule="evenodd"
-                            d="M2 11c0-1.1.9-2 2-2h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7Zm7.5 1a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"
-                            clip-rule="evenodd" />
-                        <path d="M10.5 14.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" />
-                    </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">SPJ</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 dark:text-gray-400 group-hover:text-blue-800 dark:group-hover:text-white"
+                <button type="button"
+                    class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100"
+                    aria-controls="buatkanlembur-dropdown" data-collapse-toggle="buatkanlembur-dropdown">
+                    <svg class="flex-shrink-0 w-5 h-5 text-blue-600 transition duration-75 group-hover:text-blue-800"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
                             d="M4.9 3C3.9 3 3 3.8 3 4.9V9c0 1 .8 1.9 1.9 1.9H9c1 0 1.9-.8 1.9-1.9V5c0-1-.8-1.9-1.9-1.9H5Zm10 0c-1 0-1.9.8-1.9 1.9V9c0 1 .8 1.9 1.9 1.9H19c1 0 1.9-.8 1.9-1.9V5c0-1-.8-1.9-1.9-1.9h-4Zm-10 10c-1 0-1.9.8-1.9 1.9V19c0 1 .8 1.9 1.9 1.9H9c1 0 1.9-.8 1.9-1.9v-4c0-1-.8-1.9-1.9-1.9H5ZM18 14a1 1 0 1 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 1 0 2 0v-2h2a1 1 0 1 0 0-2h-2v-2Z"
                             clip-rule="evenodd" />
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Buatkan Lembur</span>
-                </a>
+                    <span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Buatkan Lembur</span>
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4" />
+                    </svg>
+                </button>
+                <ul id="buatkanlembur-dropdown" class="hidden py-2 space-y-2">
+                    <li>
+                        <a href="/engineer/buatkanlembur/sendiri"
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100"> Untuk Sendiri</a>
+                    </li>
+                    <li>
+                        <a href="/engineer/buatkanlembur/karyawan"
+                            class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100">Untuk Karyawan</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>

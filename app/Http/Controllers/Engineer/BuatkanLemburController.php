@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Manager;
+namespace App\Http\Controllers\Engineer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kegiatan;
@@ -12,10 +12,11 @@ class BuatkanLemburController extends Controller
     function indexbuatlemburkaryawan() 
     {
         $karyawan = User::where('role', 'karyawan')->get();
-        $engineer = User::where('role', 'engineer')->get();
+        $manager = User::where('role', 'manager')->get();
 
-        return view('manager.buatkanlemburkaryawan', compact('karyawan','engineer'));
+        return view('engineer.buatkanlemburkaryawan', compact('karyawan','manager'));
     }
+
     function tambahlemburkaryawan(Request $request) {
         $request->validate([
             'id_user' => 'required',
@@ -50,36 +51,35 @@ class BuatkanLemburController extends Controller
         'ptgs_manager'=> $request->ptgs_manager,
         'lama_kegiatan'=> $request->lama_kegiatan,
         'statacc_engineer'=> 'diterima',
-        'statacc_manager'=> 'diterima',
         ]);
 
-        return redirect('/manager/datalaporan')->with('success', 'Buat Lembur Untuk Karyawan berhasil ditambahkan');
+        return redirect('/engineer/datalaporan')->with('success', 'Buat Lembur Untuk Karyawan berhasil ditambahkan');
     }
 
-    function indexbuatlemburengineer() 
+    function indexbuatlembursendiri() 
     {
-        $engineer = User::where('role', 'engineer')->get();
+        $manager = User::where('role', 'manager')->get();
 
-        return view('manager.buatkanlemburengineer', compact('engineer'));
+        return view('engineer.buatkanlembursendiri', compact('manager'));
     }
 
-    function tambahlemburengineer(Request $request) {
-        $request->validate([
-            'kegiatan' => 'required',
-            'deskripsi' => 'required',
-            'lokasi' => 'required',
-            'tgl_awal' => 'required',
-            'tgl_akhir' => 'required',
-            'lama_kegiatan' => 'required',
-        ],[
+    function tambahlembursendiri(Request $request) {
+        // $request->validate([
+        //     'kegiatan' => 'required',
+        //     'deskripsi' => 'required',
+        //     'lokasi' => 'required',
+        //     'tgl_awal' => 'required',
+        //     'tgl_akhir' => 'required',
+        //     'lama_kegiatan' => 'required',
+        // ],[
 
-            'kegiatan.required' => 'kegiatan Harus Diisi',
-            'deskripsi'=> 'deskripsi harus diisi',
-            'lokasi.required' => 'lokasi harus diisi',
-            'tgl_awal.required' => 'tanggal awal lembur Harus Diisi',
-            'tgl_akhir.required' => 'tanggal akhir lembur Harus Diisi',
-            'lama_kegiatan.required' => 'lama_kegiatan Harus Diisi',
-        ]);
+        //     'kegiatan.required' => 'kegiatan Harus Diisi',
+        //     'deskripsi'=> 'deskripsi harus diisi',
+        //     'lokasi.required' => 'lokasi harus diisi',
+        //     'tgl_awal.required' => 'tanggal awal lembur Harus Diisi',
+        //     'tgl_akhir.required' => 'tanggal akhir lembur Harus Diisi',
+        //     'lama_kegiatan.required' => 'lama_kegiatan Harus Diisi',
+        // ]);
 
         Kegiatan::create([
         'id_user' => $request->id_user,
@@ -92,9 +92,8 @@ class BuatkanLemburController extends Controller
         'ptgs_manager'=> $request->ptgs_manager,
         'lama_kegiatan'=> $request->lama_kegiatan,
         'statacc_engineer'=> 'diterima',
-        'statacc_manager'=> 'diterima',
         ]);
 
-        return redirect('/manager/datalaporan')->with('success', 'Buat Lembur Untuk Engineer berhasil ditambahkan');
+        return redirect('/engineer/datalaporan')->with('success', 'Buat Lembur Untuk Engineer berhasil ditambahkan');
     }
 }
