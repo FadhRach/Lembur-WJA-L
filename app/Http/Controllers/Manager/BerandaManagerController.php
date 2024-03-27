@@ -12,9 +12,8 @@ class BerandaManagerController extends Controller
     function index()
     {
         $kegiatan = Kegiatan::all();
-        $user = User::all();
         $kegiatanterbaru = Kegiatan::latest()->take(5)->get();
 
-        return view('manager.beranda', compact('kegiatan','user','kegiatanterbaru'));
+        return view('manager.beranda', compact('kegiatan','kegiatanterbaru'));
     }
 }

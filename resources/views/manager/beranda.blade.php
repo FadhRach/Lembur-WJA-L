@@ -51,7 +51,7 @@
                         Data Lembur Terbaru
                     </p>
                 </div>
-                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="relative overflow-x-auto shadow-md rounded-lg">
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <thead class="text-xs text-white uppercase bg-blue-500">
                             <tr>
@@ -93,31 +93,38 @@
                                 $no++;
                             @endphp
                             <tr class="bg-white border-b hover:bg-gray-50">
-                                <td class="px-2 py-4 text-center">
+                                <td class="px-2 py-2 text-center">
                                     {{ $no }}
                                 </td>
-                                <td class="px-2 py-4">
-                                    {{ $newk->user->name }}
-                                </td    >
-                                <td class="px-2 py-4">
+                                <th scope="row"
+                                    class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
+                                    <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $newk->user->foto) }}"
+                                        alt="Jese image">
+                                    <div class="ps-3">
+                                        <div class="text-base font-semibold">{{ $newk->user->name }}</div>
+                                        <div class="font-normal text-gray-500">{{ $newk->user->email }}</div>
+                                        <div class="font-normal">{{ $newk->user->jabatan }}</div>
+                                    </div>
+                                </th>
+                                <td class="px-2 py-2 font-bold">
                                     {{ $newk->kegiatan }}
                                 </td>
-                                <td class="px-2 py-4 max-w-[80px]">
+                                <td class=" px-2 py-2 max-w-[150px] text-xs">
                                     {{ $newk->deskripsi }}
                                 </td>                                
-                                <td class="px-2 py-4 max-w-[100px]">
+                                <td class="px-2 py-2 max-w-[200px]">
                                     {{ $newk->lokasi }}
                                 </td>
-                                <td class="px-2 py-4">
+                                <td class="px-2 py-2">
                                     {{ $newk->tgl_awal }}
                                 </td>
-                                <td class="px-2 py-4">
+                                <td class="px-2 py-2">
                                     {{ $newk->tgl_akhir }}
                                 </td>
-                                <td class="px-2 py-4">
+                                <td class="px-2 py-2">
                                     {{ $newk->lama_kegiatan }}
                                 </td>
-                                <td class="px-2 py-4">
+                                <td class="px-2 py-2">
                                     {{ $newk->kegiatan_stat }}
                                 </td>
                             </tr>
