@@ -11,11 +11,14 @@ class LemburEngineerController extends Controller
 {
     function lemburpengajuan() {
         $id_user = Auth::user()->id_user;
-        $kegiatan = Kegiatan::where('statacc_engineer', 'pengajuan')
-                            ->where('statacc_manager', 'pengajuan')
+        $kegiatan = Kegiatan::whereIn('statacc_engineer', ['pengajuan', 'ditolak'])
                             ->where('ptgs_engineer', $id_user)
                             ->get();
-        return view("engineer.lemburpengajuan",["kegiatan"=>$kegiatan]);
+        $kegiatanku = Kegiatan::where('id_user', $id_user)
+                            ->whereIn('statacc_manager', ['pengajuan', 'ditolak'])
+                            ->get();
+
+        return view("engineer.lemburpengajuan", compact('kegiatan','kegiatanku'));
     }
     function lemburpengajuanterima($id_kegiatan) {
 
