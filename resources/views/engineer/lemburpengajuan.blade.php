@@ -23,8 +23,8 @@
                 <div class="relative overflow-x-auto shadow-md rounded-lg mb-8">
                     @if ($kegiatan->isEmpty())
                         <div class="flex flex-col items-center justify-center">
-                            <p class="px-2 py-4 text-center text-4xl font-semibold text-blue-600">Tidak Ada Pengajuan</p>
-                            <img src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
+                            <p class="px-2 py-2 text-center text-2xl font-semibold text-blue-600">Tidak Ada Pengajuan</p>
+                            <img class="cropped-image" src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
                         </div>                    
                     @else
                     <table class="w-full text-sm text-left rtl:text-right text-gray-800 border-collapse">
@@ -178,6 +178,12 @@
                     <h1 class="text-xl text-black">Menunggu Persetujuan</h1>
                 </div>
                 <div class="relative overflow-x-auto shadow-md rounded-lg">
+                    @if($kegiatanku->isEmpty())
+                        <div class="flex flex-col items-center justify-center">
+                            <p class="px-2 py-2 text-center text-2xl font-semibold text-blue-600">Tidak Ada Pengajuan</p>
+                            <img class="cropped-image" src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
+                        </div>                          
+                    @else
                     <table class="w-full text-sm text-left rtl:text-right text-gray-800 border-collapse">
                         <thead class="text-xs text-white uppercase bg-blue-500">
                             <tr>
@@ -217,18 +223,6 @@
                             @php
                                 $no = 0;
                             @endphp
-                            @if($kegiatanku->isEmpty())
-                                <tr>
-                                    <td colspan="9" class="px-2 py-2 text-center">
-                                        <div class="flex items-center space-x-2 justify-center">
-                                            <svg class="w-5 h-5 text-yellow-300 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.408-5.5a1 1 0 1 0 0 2h.01a1 1 0 1 0 0-2h-.01ZM10 10a1 1 0 1 0 0 2h1v3h-1a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-1v-4a1 1 0 0 0-1-1h-2Z" clip-rule="evenodd"/>
-                                            </svg> 
-                                            <p>Tidak Ada Pengajuan Lembur</p>
-                                        </div>
-                                    </td>
-                                </tr>                            
-                            @else
                             @foreach ( $kegiatanku as $keku )
                             @php
                                 $no++;

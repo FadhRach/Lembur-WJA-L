@@ -13,7 +13,7 @@
             <main class="w-full flex-grow">
                 <div class="flex items-center justify-between pb-6">
                     <h1 class="text-3xl text-black">
-                        Tambah Karyawan
+                        Edit Karyawan
                     </h1>
                     <a href="/manager/daftarkaryawan" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

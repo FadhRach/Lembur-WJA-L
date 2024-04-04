@@ -53,7 +53,7 @@ class BuatkanLemburController extends Controller
         'statacc_engineer'=> 'diterima',
         ]);
 
-        return redirect('/engineer/datalaporan')->with('success', 'Buat Lembur Untuk Karyawan berhasil ditambahkan');
+        return redirect('/engineer/datapengajuan')->with('success', 'Buat Lembur Untuk Karyawan berhasil ditambahkan');
     }
 
     function indexbuatlembursendiri() 

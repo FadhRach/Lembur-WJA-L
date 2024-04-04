@@ -11,8 +11,8 @@ class LemburEngineerController extends Controller
 {
     function lemburpengajuan() {
         $id_user = Auth::user()->id_user;
-        $kegiatan = Kegiatan::whereIn('statacc_engineer', ['pengajuan', 'ditolak'])
-                            ->where('ptgs_engineer', $id_user)
+        $kegiatan = Kegiatan::where('ptgs_engineer', $id_user)
+                            ->whereIn('statacc_manager', ['pengajuan', 'ditolak'])
                             ->get();
         $kegiatanku = Kegiatan::where('id_user', $id_user)
                             ->whereIn('statacc_manager', ['pengajuan', 'ditolak'])
@@ -36,5 +36,17 @@ class LemburEngineerController extends Controller
         $kegiatan->save();
 
         return redirect("/engineer/datapengajuan")->with('success', 'Data karyawan berhasil ditolak');;
+    }
+
+
+
+    function lemburlaporan() {
+        $id_user = Auth::user()->id_user;
+        $kegiatan = Kegiatan::where('id_user', $id_user)
+                            ->where('statacc_manager', 'diterima')
+                            ->where('statacc_engineer', 'diterima')
+                            ->where('kegiatan_stat', 'progress')
+                            ->get();
+        return view("engineer.lemburlaporan", ["kegiatan"=>$kegiatan]);
     }
 }

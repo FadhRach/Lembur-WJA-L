@@ -22,9 +22,9 @@
                 <div class="relative overflow-x-auto shadow-md rounded-lg">
                     @if ($kegiatan->isEmpty())
                         <div class="flex flex-col items-center justify-center">
-                            <p class="px-2 py-4 text-center text-4xl font-semibold text-blue-600">Tidak Ada Pengajuan</p>
-                            <img src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
-                        </div>                    
+                            <p class="px-2 py-2 text-center text-2xl font-semibold text-blue-600">Tidak Ada Pengajuan</p>
+                            <img class="cropped-image" src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
+                        </div>                  
                     @else
                     <table class="w-full text-sm text-left rtl:text-right text-gray-800 border-collapse">
                         <thead class="text-xs text-white uppercase bg-blue-500">
