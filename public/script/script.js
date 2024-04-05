@@ -56,3 +56,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Hitung durasi awal saat halaman dimuat
     hitungDurasi();
 });
+
+
+// Buat Input Range
+var rangeInput = document.getElementById('price-range-input');
+var currencyInput = document.getElementById('currency-input');
+
+function updateCurrencyInput() {
+currencyInput.value = rangeInput.value;
+}
+
+rangeInput.addEventListener('input', updateCurrencyInput);
