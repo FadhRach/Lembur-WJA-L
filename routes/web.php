@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/engineer/datapengajuan/ditolak/{id}', [LemburEngineerController::class,'lemburpengajuantolak'])->middleware('userAkses:engineer');
     // Laporan Lembur
     Route::get('/engineer/datalaporan', [LemburEngineerController::class,'lemburlaporan'])->middleware('userAkses:engineer');
+    Route::get('/engineer/datalaporan/{id}', [LemburEngineerController::class,'lemburlaporandetail'])->middleware('userAkses:engineer');
 
     // Daftar Karyawan
     Route::get('/engineer/daftarkaryawan', [EngineerDaftarKaryawanController::class, 'index'])->middleware('userAkses:engineer');

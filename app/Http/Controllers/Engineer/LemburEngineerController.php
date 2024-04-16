@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Engineer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kegiatan;
+use App\Models\Laporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,8 +39,6 @@ class LemburEngineerController extends Controller
         return redirect("/engineer/datapengajuan")->with('success', 'Data karyawan berhasil ditolak');;
     }
 
-
-
     function lemburlaporan() {
         $id_user = Auth::user()->id_user;
         $kegiatan = Kegiatan::where('id_user', $id_user)
@@ -48,5 +47,12 @@ class LemburEngineerController extends Controller
                             ->where('kegiatan_stat', 'progress')
                             ->get();
         return view("engineer.lemburlaporan", ["kegiatan"=>$kegiatan]);
+    }
+
+    function lemburlaporandetail($id_kegiatan) {
+
+        $laporan = Laporan::findOrFail($id_kegiatan);
+
+        return view("engineer.lemburlaporandetail",["laporan"=>$laporan]);
     }
 }

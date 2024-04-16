@@ -11,19 +11,19 @@
     <div class="p-4 sm:ml-64">
         <div class="p-4 mt-14">
             <main class="w-full flex-grow">
-                <div class="flex items-center justify-between pb-6">
-                    <h1 class="text-3xl text-black">
-                        Edit Karyawan
-                    </h1>
-                    <a href="/engineer/daftarkaryawan" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </a>                    
-                </div>
                 <div class="bg-white border rounded-lg relative">     
                     <div class="p-6 space-y-6">
+                        <div class="flex items-center justify-between pb-6">
+                            <h1 class="text-3xl text-black">
+                                Edit Karyawan
+                            </h1>
+                            <a href="/engineer/daftarkaryawan" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </a>                    
+                        </div>
                         <form method="POST" action="/engineer/daftarkaryawan/editsave/{{ $user->id_user }}"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}

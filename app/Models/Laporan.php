@@ -9,9 +9,8 @@ class Laporan extends Model
 {
     use HasFactory;
     protected $table = "laporan";
-    protected $primaryKey = "id_laporan";
+    protected $primaryKey = "id_kegiatan";
     protected $fillable = [
-        "id_laporan",
         "id_kegiatan",
         "kgtn_tercapai",
         "deskripsi_hasil",
