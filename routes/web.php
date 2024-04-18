@@ -80,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
     // Laporan Lembur
     Route::get('/engineer/datalaporan', [LemburEngineerController::class,'lemburlaporan'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/{id}', [LemburEngineerController::class,'lemburlaporandetail'])->middleware('userAkses:engineer');
+    Route::put('/engineer/datalaporan/editsave/{id}', [LemburEngineerController::class,'lemburlaporansave'])->middleware('userAkses:engineer');
+    Route::get('/engineer/datalaporan/view/{id}', [LemburEngineerController::class,'lemburlaporanviewfile'])->middleware('userAkses:engineer');
 
     // Daftar Karyawan
     Route::get('/engineer/daftarkaryawan', [EngineerDaftarKaryawanController::class, 'index'])->middleware('userAkses:engineer');

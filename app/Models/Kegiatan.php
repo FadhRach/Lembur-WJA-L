@@ -31,6 +31,16 @@ class Kegiatan extends Model
         return $this->belongsTo('App\Models\User','id_user'); 
     }
 
+    public function engineer() 
+    { 
+        return $this->belongsTo('App\Models\User','ptgs_engineer'); 
+    }
+
+    public function manager() 
+    { 
+        return $this->belongsTo('App\Models\User','ptgs_manager'); 
+    }
+
     public function laporan()
     {
         return $this->hasMany('App\Models\laporan', 'id_kegiatan');

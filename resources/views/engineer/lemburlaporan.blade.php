@@ -62,7 +62,7 @@
                                     {{ $no }}
                                 </td>
                                 <th scope="row"
-                                    class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap">
+                                    class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap border-r">
                                     <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $keg->user->foto) }}"
                                         alt="Jese image">
                                     <div class="ps-3">
@@ -72,7 +72,7 @@
                                     </div>
                                 </th>
                                 <td class="px-2 py-2 border-r">
-                                    {{ $keg->kegiatan }}
+                                    {{ $keg->id_kegiatan }} - {{ $keg->kegiatan }}
                                 </td>
                                 <td class="px-2 py-2 border-r max-w-[150px] ">
                                     {{ $keg->lokasi }}

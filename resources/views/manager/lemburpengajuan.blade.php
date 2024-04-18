@@ -20,7 +20,7 @@
                     <h1 class="text-xl text-black">Approve Karyawan</h1>
                 </div>
                 <div class="relative overflow-x-auto shadow-md rounded-lg">
-                    @if ($kegiatan->isEmpty())
+                    @if ($kegiatan && $kegiatanblm->isEmpty())
                         <div class="flex flex-col items-center justify-center">
                             <p class="px-2 py-2 text-center text-2xl font-semibold text-blue-600">Tidak Ada Pengajuan</p>
                             <img class="cropped-image" src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
@@ -164,8 +164,6 @@
                                 </td>
                             </tr>
                             @endforeach
-
-
 
                             @foreach ( $kegiatanblm as $kgblm )
                             @php

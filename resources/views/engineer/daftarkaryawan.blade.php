@@ -79,8 +79,8 @@
                                             {{ $no }}
                                         </td>
                                     <th scope="row"
-                                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                        <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $u->foto) }}"
+                                        class="flex items-start px-6 py-4 text-gray-900 whitespace-nowrap">
+                                        <img class="max-w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $u->foto) }}"
                                             alt="Jese image">
                                         <div class="ps-3">
                                             <div class="text-base font-semibold">{{ $u->name }}</div>

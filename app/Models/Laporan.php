@@ -21,4 +21,6 @@ class Laporan extends Model
     { 
         return $this->belongsTo('App\Models\kegiatan','id_kegiatan'); 
     }
+
+    
 }
