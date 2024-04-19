@@ -14,7 +14,10 @@ class Laporan extends Model
         "id_kegiatan",
         "kgtn_tercapai",
         "deskripsi_hasil",
-        "buktifoto"
+        "buktifoto",
+        "cek_engineer",
+        "cek_manager",
+        "komentar",
     ];
 
     public function kegiatan() 

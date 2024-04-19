@@ -43,6 +43,6 @@ class Kegiatan extends Model
 
     public function laporan()
     {
-        return $this->hasMany('App\Models\laporan', 'id_kegiatan');
+        return $this->hasOne('App\Models\laporan', 'id_kegiatan');
     }
 }

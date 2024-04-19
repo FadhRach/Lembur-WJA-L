@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LemburManagerController extends Controller
 {
-    // --------------------------------------------------------------------------------------------------------------
+    // PENGAJUAN --------------------------------------------------------------------------------------------------------------
     function lemburpengajuan() {
         $id_user = Auth::user()->id_user;
         $kegiatan = Kegiatan::whereIn('statacc_manager', ['pengajuan', 'ditolak'])
@@ -39,7 +39,17 @@ class LemburManagerController extends Controller
 
         return redirect("/manager/datapengajuan")->with('success', 'Lembur karyawan berhasil ditolak');;
     }
-    // ------------------------------------------------------------------------------------------------------------
+
+    // LAPORAN --------------------------------------------------------------------------------------------------------------
+    function lemburlaporan() {
+        $id_user = Auth::user()->id_user;
+        $kegiatan = Kegiatan::where('id_user', $id_user)
+                            ->where('statacc_manager', 'diterima')
+                            ->where('statacc_engineer', 'diterima')
+                            ->where('kegiatan_stat', 'progress')
+                            ->get();
+        return view("engineer.lemburlaporan", ["kegiatan"=>$kegiatan]);
+    }
    
-    
+    // DATA LEMBUR --------------------------------------------------------------------------------------------------------------
 }

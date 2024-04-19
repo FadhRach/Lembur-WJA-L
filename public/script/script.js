@@ -58,12 +58,26 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// Buat Input Range
-var rangeInput = document.getElementById('price-range-input');
-var currencyInput = document.getElementById('currency-input');
+// // Buat Input Range
+// var rangeInput = document.getElementById('price-range-input');
+// var currencyInput = document.getElementById('currency-input');
 
-function updateCurrencyInput() {
-currencyInput.value = rangeInput.value;
-}
+// function updateCurrencyInput() {
+// currencyInput.value = rangeInput.value;
+// }
 
-rangeInput.addEventListener('input', updateCurrencyInput);
+// rangeInput.addEventListener('input', updateCurrencyInput);
+
+
+// Buat Slide Input terbaca pada laporan detail
+document.addEventListener('DOMContentLoaded', function() {
+    const rangeInput = document.getElementById('range-input');
+    const progressText = document.getElementById('progressText');
+
+    rangeInput.addEventListener('input', function() {
+        console.log('Nilai range berubah:', this.value);
+        progressText.textContent = `-> ${this.value}%`;
+    });
+});
+    
+

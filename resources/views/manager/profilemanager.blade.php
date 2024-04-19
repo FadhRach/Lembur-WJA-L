@@ -42,10 +42,12 @@
                                         role="menuitem">Kembali</a>
                                 </li>
                                 <hr>
-                                <li>
-                                    <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-200"
-                                        role="menuitem">
-                                        Log Out
+                                <li class="flex items-center">
+                                    <a href="/logout" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-red-500 hover:bg-gray-100 w-full" role="menuitem">
+                                        <svg class="w-6 h-6 mr-2 text-red-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
+                                        </svg>                                          
+                                        <span>Log Out</span>
                                     </a>
                                 </li>
                             </ul>
