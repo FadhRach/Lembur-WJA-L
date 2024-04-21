@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LemburEngineerController extends Controller
 {
+    // PENGAJUAN --------------------------------------------------------------------------------------------------------------
     function lemburpengajuan() {
         $id_user = Auth::user()->id_user;
-        $kegiatan = Kegiatan::where('ptgs_engineer', $id_user)
+        $kegiatan = Kegiatan::where('id_user','!=', $id_user)
+                            ->where('ptgs_engineer', $id_user)
                             ->whereIn('statacc_manager', ['pengajuan', 'ditolak'])
                             ->get();
         $kegiatanku = Kegiatan::where('id_user', $id_user)
@@ -40,6 +42,7 @@ class LemburEngineerController extends Controller
         return redirect("/engineer/datapengajuan")->with('success', 'Data karyawan berhasil ditolak');;
     }
 
+    // LAPORAN --------------------------------------------------------------------------------------------------------------
     function lemburlaporan() {
         $id_user = Auth::user()->id_user;
         $kegiatan = Kegiatan::where('id_user', $id_user)
@@ -58,10 +61,12 @@ class LemburEngineerController extends Controller
         return view("engineer.lemburlaporandetail",compact('laporan','kegiatan'));
     }
 
-    function lemburlaporansave($id_kegiatan, Request $request) {
+    function lemburlaporanterima($id_kegiatan, Request $request) {
         $laporan = laporan::findOrFail($id_kegiatan);
+        $laporan->cek_engineer = 'selesai';
         $laporan->kgtn_tercapai = $request->kgtn_tercapai;
         $laporan->deskripsi_hasil = $request->deskripsi_hasil;
+        $laporan->komentar = $request->komentar;
 
         if ($request->hasFile('buktifoto')) {
             $file = $request->file('buktifoto');
@@ -72,13 +77,32 @@ class LemburEngineerController extends Controller
         }
 
         $laporan->save();
-        return redirect('/engineer/datalaporan/' . $id_kegiatan)->with('success', 'Laporan Lembur berhasil diedit');
+        return redirect('/engineer/datalaporan/' . $id_kegiatan)->with('success', 'Laporan Lembur berhasil Di Approve');
+    }
+
+    function lemburlaporanrevisi($id_kegiatan, Request $request) {
+        $laporan = laporan::findOrFail($id_kegiatan);
+        $laporan->cek_engineer = 'revisi';
+        $laporan->kgtn_tercapai = $request->kgtn_tercapai;
+        $laporan->deskripsi_hasil = $request->deskripsi_hasil;
+        $laporan->komentar = $request->komentar;
+
+        if ($request->hasFile('buktifoto')) {
+            $file = $request->file('buktifoto');
+            $buktifoto = time() . "_" . $file->getClientOriginalName();
+            $tujuanupload = 'dokumentasi';
+            $file->move($tujuanupload, $buktifoto);
+            $laporan->buktifoto = $buktifoto;
+        }
+
+        $laporan->save();
+        return redirect('/engineer/datalaporan/' . $id_kegiatan)->with('success', 'Laporan Lembur berhasil Di Nyatakan Revisi');
     }
 
     function lemburlaporanviewfile($id)
     {
         $file = Laporan::findOrFail($id);
 
-        return view('engineer.viewfile',compact('file'));
+        return view('components.viewfile',compact('file'));
     }
 }

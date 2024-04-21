@@ -14,6 +14,12 @@
                 <h1 class="text-3xl text-black pb-6">Laporan Lembur</h1>
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    @if ($kegiatan->isEmpty())
+                        <div class="flex flex-col items-center justify-center">
+                            <p class="px-2 py-2 text-center text-2xl font-semibold text-blue-600">Tidak Ada Laporan Yang Harus Di Periksa</p>
+                            <img class="cropped-image" src="{{ asset('img/NoDataAnimate.gif') }}" alt="animasi">
+                        </div>                  
+                    @else
                     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                         <thead class="text-xs text-white uppercase bg-blue-500">
                             <tr>
@@ -43,92 +49,73 @@
                                 </th>
                             </tr>
                         </thead>
+                        @php
+                            $no = 0;
+                        @endphp
+                        @foreach ( $kegiatan as $keg )
+                        @php
+                            $no++;
+                        @endphp
                         <tbody>
                             <tr class="bg-white border-b hover:bg-gray-50">
                                 <td class="px-2 py-2 border-r text-center">
-                                    1
+                                    {{ $no }}
                                 </td>
+                                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap border-r">
+                                    <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $keg->user->foto) }}" alt="Jese image">
+                                    <div class="ps-3">
+                                        <div class="text-base font-semibold">{{ $keg->user->name }}</div>
+                                        <div class="font-normal text-gray-500">{{ $keg->user->email }}</div>
+                                        <div class="font-normal">{{ $keg->user->jabatan }}</div>
+                                    </div>
+                                </th>
                                 <td class="px-2 py-2 border-r">
-                                    Andi Surya Sunanda
-                                </td    >
-                                <td class="px-2 py-2 border-r">
-                                    Lembur Gangguan
+                                    {{ $keg->id_kegiatan }} - {{ $keg->kegiatan }}
                                 </td>
-                                <td class="px-2 py-2 border-r max-w-[150px] ">
-                                    jalan nusa hinyai nomor 8 kecamatan blok asih kabvudpajrleka taman
+                                <td class="px-2 py-2 border-r max-w-[150px]">
+                                    {{ $keg->lokasi }}
                                 </td>
                                 <td class="px-2 py-2 border-r max-w-[200px]">
-                                    Gangguan Sentral Backbone Padalarang dan Ciung sampe bandung full mati tidak ada jaringan
-                                </td>
-                                <td class="px-2 py-2 border-r">
-                                    4 Jam
+                                    {{ $keg->lama_kegiatan }}
                                 </td>
                                 <td class="px-2 py-2 border-r">
                                     <div class="flex justify-center m-5">
-                                        <button id="readProductButton" data-modal-target="readProductModal" data-modal-toggle="readProductModal" class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
-                                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
-                                              </svg>
-                                        </button>
-                                    </div>                     
-                                </td>
+                                        <a href="/manager/datalaporan/{{ $keg->id_kegiatan }}" class="block font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            @if($keg->laporan->cek_manager === "pengajuan" || is_null($keg->laporan->buktifoto) || is_null($keg->laporan->deskripsi_hasil))
+                                                <svg class="w-6 h-6 text-gray-500 hover:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1.365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                                                </svg>
+                                            @else
+                                                @if($keg->laporan->cek_manager === "revisi" || $keg->laporan->cek_manager === "revisi")
+                                                    <svg class="w-6 h-6 text-red-400 hover:text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1.365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                @elseif($keg->laporan->cek_manager === "selesai" && $keg->laporan->cek_manager === "selesai")
+                                                    <svg class="w-6 h-6 text-green-300 hover:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1.365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                @else
+                                                    <svg class="w-6 h-6 text-yellow-300 hover:text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1.365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                @endif
+                                            @endif
+                                        </a>
+                                    </div>
+                                              
+                                </td>                            
                                 <td class="px-2 py-2 text-center">
-                                    Selesaikan Lembur
+                                    {{ $keg->kegiatan_stat }}
                                 </td>
                             </tr>
                         </tbody>
+                    @endforeach                    
                     </table>
+                    @endif
                 </div>
             </main>
         </div>
-    </div>
-
-    {{-- !-- Main modal --> --}}
-    <div id="readProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-        <div class="relative p-4 w-full max-w-xl h-full md:h-auto">
-            <!-- Modal content -->
-            <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-                    <!-- Modal header -->
-                    <div class="flex justify-between mb-4 rounded-t sm:mb-5">
-                        <div class="text-lg text-gray-900 md:text-xl dark:text-white">
-                            <h3 class="font-semibold ">
-                                Apple iMac 27”
-                            </h3>
-                            <p class="font-bold">
-                                $2999
-                            </p>
-                        </div>
-                        <div>
-                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="readProductModal">
-                                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                <span class="sr-only">Close modal</span>
-                            </button>
-                        </div>
-                    </div>
-                    <dl>
-                        <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Details</dt>
-                        <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">Standard glass ,3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US.</dd>
-                        <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Category</dt>
-                        <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">Electronics/PC</dd>
-                    </dl>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center space-x-3 sm:space-x-4">
-                            <button type="button" class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                <svg aria-hidden="true" class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
-                                Edit
-                            </button>               
-                            <button type="button" class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                Preview
-                            </button>
-                        </div>              
-                        <button type="button" class="inline-flex items-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
-                            <svg aria-hidden="true" class="w-5 h-5 mr-1.5 -ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                            Delete
-                        </button>
-                    </div>
-            </div>
-        </div>
-    </div>
+    </div>  
 
     @if($massage = Session::get('success'))
     <script>

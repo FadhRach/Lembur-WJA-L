@@ -48,7 +48,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager/datapengajuan/diterima/{id}', [LemburManagerController::class,'lemburpengajuanterima'])->middleware('userAkses:manager');
     Route::get('/manager/datapengajuan/ditolak/{id}', [LemburManagerController::class,'lemburpengajuantolak'])->middleware('userAkses:manager');
     // Laporan Lembur
-    Route::get('/manager/datalaporan', function(){return view('manager.lemburlaporan');})->middleware('userAkses:manager');
+    Route::get('/manager/datalaporan', [LemburManagerController::class,'lemburlaporan'])->middleware('userAkses:manager');
+    Route::get('/manager/datalaporan/{id}', [LemburManagerController::class,'lemburlaporandetail'])->middleware('userAkses:manager');
+    Route::put('/manager/datalaporan/terima/{id}', [LemburManagerController::class,'lemburlaporanterima'])->middleware('userAkses:manager');
+    Route::put('/manager/datalaporan/revisi/{id}', [LemburManagerController::class,'lemburlaporanrevisi'])->middleware('userAkses:manager');
+    Route::get('/manager/datalaporan/view/{id}', [LemburManagerController::class,'lemburlaporanviewfile'])->middleware('userAkses:manager');
     // Data Lembur
     Route::get('/manager/datalembur', function(){return view('manager.lemburdata');})->middleware('userAkses:manager');
     // Daftar Karyawan
@@ -80,7 +84,8 @@ Route::middleware(['auth'])->group(function () {
     // Laporan Lembur
     Route::get('/engineer/datalaporan', [LemburEngineerController::class,'lemburlaporan'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/{id}', [LemburEngineerController::class,'lemburlaporandetail'])->middleware('userAkses:engineer');
-    Route::put('/engineer/datalaporan/editsave/{id}', [LemburEngineerController::class,'lemburlaporansave'])->middleware('userAkses:engineer');
+    Route::put('/engineer/datalaporan/terima/{id}', [LemburEngineerController::class,'lemburlaporanterima'])->middleware('userAkses:engineer');
+    Route::put('/engineer/datalaporan/revisi/{id}', [LemburEngineerController::class,'lemburlaporanrevisi'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/view/{id}', [LemburEngineerController::class,'lemburlaporanviewfile'])->middleware('userAkses:engineer');
 
     // Daftar Karyawan

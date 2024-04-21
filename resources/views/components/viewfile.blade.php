@@ -17,7 +17,7 @@
                     </div>
                     <div class="flex items-center">
                         <div class="flex items-center justify-start rtl:justify-end">
-                            <a href="/engineer/datalaporan/{{ $file->id_kegiatan }}">
+                            <a href="/{{ Auth::user()->role }}/datalaporan/{{ $file->id_kegiatan }}">
                                 <svg class="w-6 h-6 text-red-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
                                   </svg>   
@@ -44,7 +44,7 @@
                                 </div>
                                 <ul class="py-1" role="none">
                                     <li>
-                                        <a href="/engineer/datalaporan/{{ $file->id_kegiatan }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                        <a href="/{{ Auth::user()->role }}/datalaporan/{{ $file->id_kegiatan }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                             role="menuitem">Kembali</a>
                                     </li>
                                     <hr>
