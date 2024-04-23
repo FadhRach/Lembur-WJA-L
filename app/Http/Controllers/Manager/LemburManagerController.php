@@ -106,4 +106,8 @@ class LemburManagerController extends Controller
     }
    
     // DATA LEMBUR --------------------------------------------------------------------------------------------------------------
+    function lemburdata() {
+        $kegiatan = Kegiatan::all();
+        return view('engineer.lemburdata', compact('kegiatan'));
+    }
 }

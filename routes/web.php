@@ -87,7 +87,10 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/engineer/datalaporan/terima/{id}', [LemburEngineerController::class,'lemburlaporanterima'])->middleware('userAkses:engineer');
     Route::put('/engineer/datalaporan/revisi/{id}', [LemburEngineerController::class,'lemburlaporanrevisi'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/view/{id}', [LemburEngineerController::class,'lemburlaporanviewfile'])->middleware('userAkses:engineer');
-
+    Route::get('/engineer/datalaporan/archive/{id}', [LemburEngineerController::class,'lemburlaporanarchive'])->middleware('userAkses:engineer');
+    // Data Lembur
+    Route::get('/engineer/datalembur', [LemburEngineerController::class,'lemburdata'])->middleware('userAkses:engineer');
+    Route::get('/engineer/datalembur/{id}', [LemburEngineerController::class,'lemburdatadetail'])->middleware('userAkses:engineer');
     // Daftar Karyawan
     Route::get('/engineer/daftarkaryawan', [EngineerDaftarKaryawanController::class, 'index'])->middleware('userAkses:engineer');
     Route::get('/engineer/daftarkaryawan/tambah', [EngineerDaftarKaryawanController::class,'tambah'])->middleware('userAkses:engineer');

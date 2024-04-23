@@ -105,4 +105,29 @@ class LemburEngineerController extends Controller
 
         return view('components.viewfile',compact('file'));
     }
+
+    function lemburlaporanarchive($id)
+    {
+        $kegiatan = Kegiatan::findOrFail($id);
+        $kegiatan->kegiatan_stat = 'selesai';
+        $kegiatan->save();
+
+        return redirect("/engineer/datalembur")->with('success', 'Lembur berhasil Di Arsipkan dan Selesai');
+    }
+
+    // DATA LEMBUR --------------------------------------------------------------------------------------------------------------
+    function lemburdata() {
+        $id_user = Auth::user()->id_user;
+        $kegiatan = Kegiatan::where('ptgs_engineer',$id_user)
+                            ->get();
+        return view('engineer.lemburdata', compact('kegiatan'));
+    }
+
+    function lemburdatadetail($id_kegiatan) {
+
+        $laporan = Laporan::findOrFail($id_kegiatan);
+        $kegiatan = Kegiatan::findOrFail($id_kegiatan);
+
+        return view("engineer.lemburdatadetail",compact('laporan','kegiatan'));
+    }
 }
