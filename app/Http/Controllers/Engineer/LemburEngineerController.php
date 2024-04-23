@@ -24,13 +24,20 @@ class LemburEngineerController extends Controller
 
         return view("engineer.lemburpengajuan", compact('kegiatan','kegiatanku'));
     }
+    
+    function lemburpengajuandetail($id_kegiatan){
+        $kegiatan = Kegiatan::findOrFail($id_kegiatan);
+
+        return view("engineer.lemburpengajuandetail",compact('kegiatan'));
+    }
+
     function lemburpengajuanterima($id_kegiatan) {
 
         $kegiatan = Kegiatan::findOrFail($id_kegiatan);
         $kegiatan->statacc_engineer = 'diterima';
         $kegiatan->save();
 
-        return redirect("/engineer/datapengajuan")->with('success', 'Lembur karyawan berhasil diterima');;
+        return redirect("/engineer/datapengajuan")->with('success', 'Lembur Karyawan berhasil diterima');
     }
 
     function lemburpengajuantolak($id_kegiatan) {
@@ -39,7 +46,14 @@ class LemburEngineerController extends Controller
         $kegiatan->statacc_engineer = 'ditolak';
         $kegiatan->save();
 
-        return redirect("/engineer/datapengajuan")->with('success', 'Data karyawan berhasil ditolak');;
+        return redirect("/engineer/datapengajuan")->with('success', 'Lembur Karyawan berhasil ditolak');
+    }
+
+    function lemburpengajuandelete($id_kegiatan){
+
+        $kegiatan = Kegiatan::findOrFail($id_kegiatan);
+        $kegiatan->delete();
+        return redirect("/engineer/datapengajuan")->with('success', 'Pengajuan Lembur berhasil dihapus');
     }
 
     // LAPORAN --------------------------------------------------------------------------------------------------------------
@@ -115,6 +129,13 @@ class LemburEngineerController extends Controller
         return redirect("/engineer/datalembur")->with('success', 'Lembur berhasil Di Arsipkan dan Selesai');
     }
 
+    function lemburlaporandelete($id_kegiatan){
+
+        $kegiatan = Kegiatan::findOrFail($id_kegiatan);
+        $kegiatan->delete();
+        return redirect("/engineer/datalaporan")->with('success', 'Laporan Lembur berhasil dihapus');
+    }
+
     // DATA LEMBUR --------------------------------------------------------------------------------------------------------------
     function lemburdata() {
         $id_user = Auth::user()->id_user;
@@ -129,5 +150,21 @@ class LemburEngineerController extends Controller
         $kegiatan = Kegiatan::findOrFail($id_kegiatan);
 
         return view("engineer.lemburdatadetail",compact('laporan','kegiatan'));
+    }
+
+    function cari(Request $request) 
+    {
+        $cari = $request->cari;
+        $kegiatan = Kegiatan::where('id_kegiatan', 'like', "%".$cari."%")
+                ->orWhere('kegiatan', 'like', "%".$cari."%")
+                ->orWhere('user', 'like', "%".$cari."%")
+                ->orWhere('jabatan', 'like', "%".$cari."%")
+                ->orWhere('mitra', 'like', "%".$cari."%")
+                ->orWhere('nik', 'like', "%".$cari."%")
+                ->orWhere('alamat', 'like', "%".$cari."%")
+                ->orWhere('no_telp', 'like', "%".$cari."%")
+                ->paginate();
+
+        return view('/engineer/lemburdata', ['kegiatan' => $kegiatan]);
     }
 }

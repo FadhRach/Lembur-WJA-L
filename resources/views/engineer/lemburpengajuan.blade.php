@@ -40,16 +40,10 @@
                                     Kegiatan
                                 </th>
                                 <th scope="col" class="px-2 py-3 ">
-                                    Deskripsi
-                                </th>
-                                <th scope="col" class="px-2 py-3 ">
                                     Lokasi
                                 </th>
                                 <th scope="col" class="px-2 py-3 ">
-                                    Waktu Awal
-                                </th>
-                                <th scope="col" class="px-2 py-3 ">
-                                    Waktu Akhir
+                                    Detail Pengajuan
                                 </th>
                                 <th scope="col" class="px-2 py-3 ">
                                     Engineer Status
@@ -87,18 +81,18 @@
                                 <td class="px-2 py-2 border-r font-medium">
                                     {{ $keg->kegiatan }}
                                 </td>
-                                <td class="px-2 py-2 border-r max-w-[200px] text-xs">
-                                    {{ $keg->deskripsi }}
-                                </td>
-                                <td class="px-2 py-2 border-r max-w-[150px] text-xs">
+                                <td class="px-2 py-2 border-r">
                                     {{ $keg->lokasi }}
                                 </td>
                                 <td class="px-2 py-2 border-r">
-                                    {{ $keg->tgl_awal }}
-                                </td>
-                                <td class="px-2 py-2 border-r">
-                                    {{ $keg->tgl_akhir }}
-                                </td>       
+                                    <div class="flex justify-center m-5">
+                                        <a href="/engineer/datapengajuan/{{ $keg->id_kegiatan }}" class="block font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            <svg class="w-6 h-6 text-gray-500 hover:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1.365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>      
                                 <td class="px-2 py-2 border-r">
                                     @if ($keg->statacc_engineer === 'diterima')
                                         <div class="flex items-center justify-center">
@@ -199,19 +193,10 @@
                                     Kegiatan
                                 </th>
                                 <th scope="col" class="px-2 py-3 ">
-                                    Deskripsi
-                                </th>
-                                <th scope="col" class="px-2 py-3 ">
                                     Lokasi
                                 </th>
                                 <th scope="col" class="px-2 py-3 ">
-                                    Waktu Awal
-                                </th>
-                                <th scope="col" class="px-2 py-3 ">
-                                    Waktu Akhir
-                                </th>
-                                <th scope="col" class="px-2 py-3 ">
-                                    Lama Kegiatan
+                                    Detail Pengajuan
                                 </th>
                                 <th scope="col" class="px-2 py-3 ">
                                     Engineer Status
@@ -219,6 +204,7 @@
                                 <th scope="col" class="px-2 py-3 ">
                                     Manager Status
                                 </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody class="">
@@ -236,7 +222,7 @@
                                 <th scope="row"
                                     class="flex items-center px-8 py-6 text-gray-900 whitespace-nowrap border-r">
                                     <img class="w-10 h-10 rounded-full object-cover object-center" src="{{ url('/img/' . $keku->user->foto) }}"
-                                        alt="Jese image">
+                                        alt="img">
                                     <div class="ps-3">
                                         <div class="text-base font-semibold">{{ $keku->user->name }}</div>
                                         <div class="text-xs font-normal text-gray-500">{{ $keku->user->email }}</div>
@@ -246,20 +232,17 @@
                                 <td class="px-2 py-2 border-r font-medium">
                                     {{ $keku->kegiatan }}
                                 </td>
-                                <td class="px-2 py-2 border-r max-w-[200px] text-xs">
-                                    {{ $keku->deskripsi }}
-                                </td>
-                                <td class="px-2 py-2 border-r max-w-[150px] text-xs">
+                                <td class="px-2 py-2 border-r">
                                     {{ $keku->lokasi }}
                                 </td>
                                 <td class="px-2 py-2 border-r">
-                                    {{ $keku->tgl_awal }}
-                                </td>
-                                <td class="px-2 py-2 border-r">
-                                    {{ $keku->tgl_akhir }}
-                                </td>
-                                <td class="px-2 py-2 border-r">
-                                    {{ $keku->lama_kegiatan }}
+                                    <div class="flex justify-center m-2">
+                                        <a href="/engineer/datapengajuan/{{ $keku->id_kegiatan }}" class="block font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                            <svg class="w-6 h-6 text-gray-500 hover:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1.365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7ZM8 16a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </td>      
                                 <td class="px-2 py-2 border-r">
                                     @if ($keku->statacc_engineer === 'diterima')
@@ -312,6 +295,15 @@
                                     @else
                                     {{ $keku->statacc_manager }}
                                     @endif
+                                </td>
+                                <td class="px-2 py-2">
+                                    <div class="flex justify-center">
+                                        <a href="/engineer/datapengajuan/delete/{{ $keku->id_kegiatan }}">
+                                            <svg class="w-6 h-6 text-red-400 hover:text-red-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd"/>
+                                            </svg>                               
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

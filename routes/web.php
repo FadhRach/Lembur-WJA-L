@@ -79,13 +79,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/engineer', [BerandaEngineerController::class, 'index'])->middleware('userAkses:engineer');
     // Pengajuan Lembur
     Route::get('/engineer/datapengajuan', [LemburEngineerController::class,'lemburpengajuan'])->middleware('userAkses:engineer');
+    Route::get('/engineer/datapengajuan/{id}', [LemburEngineerController::class,'lemburpengajuandetail'])->middleware('userAkses:engineer');
     Route::get('/engineer/datapengajuan/diterima/{id}', [LemburEngineerController::class,'lemburpengajuanterima'])->middleware('userAkses:engineer');
     Route::get('/engineer/datapengajuan/ditolak/{id}', [LemburEngineerController::class,'lemburpengajuantolak'])->middleware('userAkses:engineer');
+    Route::get('/engineer/datapengajuan/delete/{id}', [LemburEngineerController::class,'lemburpengajuandelete'])->middleware('userAkses:engineer');
     // Laporan Lembur
     Route::get('/engineer/datalaporan', [LemburEngineerController::class,'lemburlaporan'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/{id}', [LemburEngineerController::class,'lemburlaporandetail'])->middleware('userAkses:engineer');
     Route::put('/engineer/datalaporan/terima/{id}', [LemburEngineerController::class,'lemburlaporanterima'])->middleware('userAkses:engineer');
     Route::put('/engineer/datalaporan/revisi/{id}', [LemburEngineerController::class,'lemburlaporanrevisi'])->middleware('userAkses:engineer');
+    Route::get('/engineer/datalaporan/delete/{id}', [LemburEngineerController::class,'lemburlaporandelete'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/view/{id}', [LemburEngineerController::class,'lemburlaporanviewfile'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/archive/{id}', [LemburEngineerController::class,'lemburlaporanarchive'])->middleware('userAkses:engineer');
     // Data Lembur
