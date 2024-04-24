@@ -6,6 +6,7 @@ use App\Http\Controllers\Engineer\DaftarKaryawanController as EngineerDaftarKary
 use App\Http\Controllers\Engineer\LemburEngineerController;
 use App\Http\Controllers\Karyawan\BerandaKaryawanController;
 use App\Http\Controllers\karyawan\BuatLemburController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\Manager\BerandaManagerController;
 use App\Http\Controllers\Manager\BuatkanLemburController as ManagerBuatkanLemburController;
 use App\Http\Controllers\Manager\DaftarKaryawanController as ManagerDaftarKaryawanController;
@@ -24,10 +25,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::middleware(['guest'])->group(function(){
-    
-});
+Route::get('/sendmail',[MailController::class, 'index']);
 Route::get('/', [SesiController::class, 'index'])->name('login');
 Route::post('/', [SesiController::class, 'login']);
 // RESET BOBOL
