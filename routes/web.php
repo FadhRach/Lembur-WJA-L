@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager', [BerandaManagerController::class, 'index'])->middleware('userAkses:manager');
     // Pengajuan Lembur
     Route::get('/manager/datapengajuan', [LemburManagerController::class,'lemburpengajuan'])->middleware('userAkses:manager');
+    Route::get('/manager/datapengajuan/{id}', [LemburManagerController::class,'lemburpengajuandetail'])->middleware('userAkses:manager');
     Route::get('/manager/datapengajuan/diterima/{id}', [LemburManagerController::class,'lemburpengajuanterima'])->middleware('userAkses:manager');
     Route::get('/manager/datapengajuan/ditolak/{id}', [LemburManagerController::class,'lemburpengajuantolak'])->middleware('userAkses:manager');
     // Laporan Lembur

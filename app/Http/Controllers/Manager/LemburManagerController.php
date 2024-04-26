@@ -22,6 +22,12 @@ class LemburManagerController extends Controller
                             ->get();
         return view("manager.lemburpengajuan",compact('kegiatan','kegiatanblm'));
     }
+
+    function lemburpengajuandetail($id_kegiatan){
+        $kegiatan = Kegiatan::findOrFail($id_kegiatan);
+
+        return view("manager.lemburpengajuandetail",compact('kegiatan'));
+    }
     
     function lemburpengajuanterima($id_kegiatan) {
 
