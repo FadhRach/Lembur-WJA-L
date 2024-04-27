@@ -59,7 +59,7 @@ class LemburEngineerController extends Controller
     // LAPORAN --------------------------------------------------------------------------------------------------------------
     function lemburlaporan() {
         $id_user = Auth::user()->id_user;
-        $kegiatan = Kegiatan::where('id_user', $id_user)
+        $kegiatan = Kegiatan::where('ptgs_engineer', $id_user)
                             ->where('statacc_manager', 'diterima')
                             ->where('statacc_engineer', 'diterima')
                             ->where('kegiatan_stat', 'progress')
@@ -120,6 +120,11 @@ class LemburEngineerController extends Controller
         return view('components.viewfile',compact('file'));
     }
 
+    function lemburlaporantemplatefile()
+    {
+        return view('components.templatefile');
+    }
+
     function lemburlaporanarchive($id)
     {
         $kegiatan = Kegiatan::findOrFail($id);
@@ -140,6 +145,7 @@ class LemburEngineerController extends Controller
     function lemburdata() {
         $id_user = Auth::user()->id_user;
         $kegiatan = Kegiatan::where('ptgs_engineer',$id_user)
+                            ->where('kegiatan_stat','selesai')
                             ->get();
         return view('engineer.lemburdata', compact('kegiatan'));
     }
@@ -150,21 +156,5 @@ class LemburEngineerController extends Controller
         $kegiatan = Kegiatan::findOrFail($id_kegiatan);
 
         return view("engineer.lemburdatadetail",compact('laporan','kegiatan'));
-    }
-
-    function cari(Request $request) 
-    {
-        $cari = $request->cari;
-        $kegiatan = Kegiatan::where('id_kegiatan', 'like', "%".$cari."%")
-                ->orWhere('kegiatan', 'like', "%".$cari."%")
-                ->orWhere('user', 'like', "%".$cari."%")
-                ->orWhere('jabatan', 'like', "%".$cari."%")
-                ->orWhere('mitra', 'like', "%".$cari."%")
-                ->orWhere('nik', 'like', "%".$cari."%")
-                ->orWhere('alamat', 'like', "%".$cari."%")
-                ->orWhere('no_telp', 'like', "%".$cari."%")
-                ->paginate();
-
-        return view('/engineer/lemburdata', ['kegiatan' => $kegiatan]);
     }
 }

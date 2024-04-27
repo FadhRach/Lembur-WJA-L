@@ -52,7 +52,7 @@ class BuatLemburController extends Controller
         'lama_kegiatan'=> $request->lama_kegiatan,   
         ]);
 
-        return redirect('/karyawan/pengajuan')->with('success', 'Lembur berhasil ditambahkan');
+        return redirect('/karyawan/datapengajuan')->with('success', 'Lembur berhasil ditambahkan');
     }
     
 }

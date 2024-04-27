@@ -6,6 +6,7 @@ use App\Http\Controllers\Engineer\DaftarKaryawanController as EngineerDaftarKary
 use App\Http\Controllers\Engineer\LemburEngineerController;
 use App\Http\Controllers\Karyawan\BerandaKaryawanController;
 use App\Http\Controllers\karyawan\BuatLemburController;
+use App\Http\Controllers\Karyawan\LemburKaryawanController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Manager\BerandaManagerController;
 use App\Http\Controllers\Manager\BuatkanLemburController as ManagerBuatkanLemburController;
@@ -15,23 +16,11 @@ use App\Http\Controllers\SesiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 Route::get('/sendmail',[MailController::class, 'index']);
 Route::get('/', [SesiController::class, 'index'])->name('login');
 Route::post('/', [SesiController::class, 'login']);
-// RESET BOBOL
-Route::get('/home', function(){
-    return redirect('/');
-});
+// RESET
+Route::get('/home', function(){return redirect('/');});
 
 Route::middleware(['auth'])->group(function () {
 
@@ -52,8 +41,10 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/manager/datalaporan/terima/{id}', [LemburManagerController::class,'lemburlaporanterima'])->middleware('userAkses:manager');
     Route::put('/manager/datalaporan/revisi/{id}', [LemburManagerController::class,'lemburlaporanrevisi'])->middleware('userAkses:manager');
     Route::get('/manager/datalaporan/view/{id}', [LemburManagerController::class,'lemburlaporanviewfile'])->middleware('userAkses:manager');
+    Route::get('/manager/datalaporan/archive/{id}', [LemburManagerController::class,'lemburlaporanarchive'])->middleware('userAkses:manager');
     // Data Lembur
-    Route::get('/manager/datalembur', function(){return view('manager.lemburdata');})->middleware('userAkses:manager');
+    Route::get('/manager/datalembur', [LemburManagerController::class,'lemburdata'])->middleware('userAkses:manager');
+    Route::get('/manager/datalembur/{id}', [LemburManagerController::class,'lemburdatadetail'])->middleware('userAkses:manager');
     // Daftar Karyawan
     Route::get('/manager/daftarkaryawan', [ManagerDaftarKaryawanController::class,'index'])->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan/tambah', [ManagerDaftarKaryawanController::class,'tambah'])->middleware('userAkses:manager');
@@ -62,13 +53,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/manager/daftarkaryawan/editsave/{id}', [ManagerDaftarKaryawanController::class,'editsave'])->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan/delete/{id}', [ManagerDaftarKaryawanController::class,'delete'])->middleware('userAkses:manager');
     Route::get('/manager/daftarkaryawan/cari', [ManagerDaftarKaryawanController::class,'cari'])->middleware('userAkses:manager');
-    // Buatkanlembur Karyawan
-    Route::get('/manager/buatkanlembur/karyawan', [ManagerBuatkanLemburController::class,'indexbuatlemburkaryawan'])->middleware('userAkses:manager');
-    Route::post('/manager/buatkanlembur/karyawansave', [ManagerBuatkanLemburController::class,'tambahlemburkaryawan'])->middleware('userAkses:manager');
-    // Buatkanlembur Engineer
-    Route::get('/manager/buatkanlembur/engineer', [ManagerBuatkanLemburController::class,'indexbuatlemburengineer'])->middleware('userAkses:manager');
-    Route::post('/manager/buatkanlembur/engineersave', [ManagerBuatkanLemburController::class,'tambahlemburengineer'])->middleware('userAkses:manager');
-
 
 //ROUTE ENGINEER -----------------------------------------------------------------------------------------------------------------------
     // Profile
@@ -89,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/engineer/datalaporan/revisi/{id}', [LemburEngineerController::class,'lemburlaporanrevisi'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/delete/{id}', [LemburEngineerController::class,'lemburlaporandelete'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/view/{id}', [LemburEngineerController::class,'lemburlaporanviewfile'])->middleware('userAkses:engineer');
+    // Route::get('/engineer/datalaporan/template', [LemburEngineerController::class,'lemburlaporantemplatefile'])->middleware('userAkses:engineer');
     Route::get('/engineer/datalaporan/archive/{id}', [LemburEngineerController::class,'lemburlaporanarchive'])->middleware('userAkses:engineer');
     // Data Lembur
     Route::get('/engineer/datalembur', [LemburEngineerController::class,'lemburdata'])->middleware('userAkses:engineer');
@@ -102,29 +87,30 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/engineer/daftarkaryawan/delete/{id}', [EngineerDaftarKaryawanController::class,'delete'])->middleware('userAkses:engineer');
     Route::get('/engineer/daftarkaryawan/cari', [EngineerDaftarKaryawanController::class,'cari'])->middleware('userAkses:engineer');
 
-    // Buatkan Lembur
-    Route::get('/engineer/buatkanlembur/sendiri', [EngineerBuatkanLemburController::class,'indexbuatlembursendiri'])->middleware('userAkses:engineer');
-    Route::post('/engineer/buatkanlembur/sendirisave', [EngineerBuatkanLemburController::class,'tambahlembursendiri'])->middleware('userAkses:engineer');
-    Route::get('/engineer/buatkanlembur/karyawan', [EngineerBuatkanLemburController::class,'indexbuatlemburkaryawan'])->middleware('userAkses:engineer');
-    Route::post('/engineer/buatkanlembur/karyawansave', [EngineerBuatkanLemburController::class,'tambahlemburkaryawan'])->middleware('userAkses:engineer');
-
-
-
-
 //ROUTE KARYAWAN -----------------------------------------------------------------------------------------------------------------------
+    // Profile
     Route::get('/karyawan/profile/{id}', [UserController::class, 'indexkaryawan'])->middleware('userAkses:karyawan');
     Route::put('/karyawan/profile/editsave/{id}', [UserController::class, 'editsavekaryawan'])->middleware('userAkses:karyawan');
+    // Beranda
     Route::get('/karyawan', [BerandaKaryawanController::class, 'index'])->middleware('userAkses:karyawan');
-    Route::get('/karyawan/pengajuan', function(){return view('karyawan.lemburpengajuan');})->middleware('userAkses:karyawan');
-    Route::get('/karyawan/laporan', function(){return view('karyawan.lemburlaporan');})->middleware('userAkses:karyawan');
-    Route::get('/karyawan/history', function(){return view('karyawan.lemburhistory');})->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datahistory', function(){return view('karyawan.berandadetail');})->middleware('userAkses:karyawan');
+    // Pengajuan Lembur
+    Route::get('/karyawan/datapengajuan', [LemburKaryawanController::class, 'lemburpengajuan'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datapengajuan/{id}', [LemburKaryawanController::class, 'lemburpengajuandetail'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datapengajuan/delete/{id}', [LemburKaryawanController::class,'lemburpengajuandelete'])->middleware('userAkses:karyawan');
+    // Laporan Lembur
+    Route::get('/karyawan/datalaporan', [LemburKaryawanController::class, 'lemburlaporan'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datalaporan/{id}', [LemburKaryawanController::class, 'lemburlaporandetail'])->middleware('userAkses:karyawan');
+    Route::put('/karyawan/datalaporan/save/{id}', [LemburKaryawanController::class, 'lemburlaporansave'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datalaporan/view/{id}', [LemburKaryawanController::class,'lemburlaporanviewfile'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datalaporan/delete/{id}', [LemburKaryawanController::class,'lemburlaporandelete'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datalaporan/archive/{id}', [LemburKaryawanController::class,'lemburlaporanarchive'])->middleware('userAkses:karyawan');
+    // History Lembur
+    Route::get('/karyawan/datahistory', [LemburKaryawanController::class,'lemburhistory'])->middleware('userAkses:karyawan');
+    Route::get('/karyawan/datahistory/{id}', [LemburKaryawanController::class,'lemburhistorydetail'])->middleware('userAkses:karyawan');
+    // Buat Lembur
     Route::get('/karyawan/buatlembur', [BuatLemburController::class, 'index'])->middleware('userAkses:karyawan');
     Route::post('/karyawan/buatlembursave', [BuatLemburController::class, 'tambahlemburkaryawan'])->middleware('userAkses:karyawan');
-    Route::get('/karyawan/lemburpengajuan', function(){return view ('karyawan.pengajuanlembur');})->middleware('userAkses:karyawan');
-    Route::get('/karyawan/lemburkegiatan', function(){return view ('karyawan.kegiatanlembur');})->middleware('userAkses:karyawan');
-    Route::get('/karyawan/lemburlaporan', function(){return view ('karyawan.laporanlembur');})->middleware('userAkses:karyawan');
-    Route::get('/karyawan/lemburhistory', function(){return view ('karyawan.history');})->middleware('userAkses:karyawan');
-
     //LOGOUT -------------------------------------------------------------------------------------------------------------------------------
     Route::get('/logout', [SesiController::class, 'logout']);
 });
