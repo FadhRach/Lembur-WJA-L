@@ -157,4 +157,5 @@ class LemburEngineerController extends Controller
 
         return view("engineer.lemburdatadetail",compact('laporan','kegiatan'));
     }
+
 }

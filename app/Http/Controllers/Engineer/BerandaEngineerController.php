@@ -13,6 +13,6 @@ class BerandaEngineerController extends Controller
         $kegiatan = Kegiatan::all();
         $kegiatanterbaru = Kegiatan::latest()->take(5)->get();
 
-        return view('manager.beranda', compact('kegiatan','kegiatanterbaru'));
+        return view('engineer.beranda', compact('kegiatan','kegiatanterbaru'));
     }
 }
